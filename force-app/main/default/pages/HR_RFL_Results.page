@@ -1,0 +1,928 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="true" showChat="false" showQuickActionVfHeader="false">
+
+    <apex:includeLightning />
+
+    <head>
+        <title>Around the World in 40 Days Results</title>
+
+        <!--Socials meta tags-->
+        <meta property="og:title" content="Around the World in 40 Days"></meta>
+        <meta property="og:description" content="You are invited on a people-powered journey around the world. No passports required! Join today and help raise funds for refugees at risk from COVID-19"></meta>
+        <meta property="og:image" content="https://helprefugees--c.um4.visual.force.com/resource/1588331497000/campaign_logo"></meta>
+        <meta property="og:url" content="https://helprefugees.org/aroundtheworld"></meta>
+
+        <meta name="twitter:title" content="Around the World in 40 Days"></meta>
+        <meta name="twitter:description" content="You are invited on a people-powered journey around the world. No passports required! Join today and help raise funds for refugees at risk from COVID-19"></meta>
+        <meta name="twitter:image" content="https://helprefugees--c.um4.visual.force.com/resource/1588331497000/campaign_logo"></meta>
+
+        <script>(function (UITheme) {
+                UITheme.getUITheme = function () {
+                    return UserContext.uiTheme;
+                };
+            }(window.UITheme = window.UITheme || {}));</script>
+
+        <style type="text/css">
+            [dir="rtl"] [lightning-formattedNumber_formattedNumber-host] {
+                direction: ltr;
+                unicode-bidi: embed
+            }
+        </style>
+    </head>
+
+    <body>
+        <span id="j_id0:j_id1"></span>
+
+        <meta http-equiv="PRAGMA" content="NO-CACHE"></meta>
+        <meta http-equiv="Expires" content="Mon, 01 Jan 1990 12:00:00 GMT"></meta>
+
+        <meta content="width=device-width, initial-scale=1" name="viewport"></meta>
+        <title>Run For Love Scoreboard</title>
+
+        <!-- Styling for main page -->
+        <style type="text/css">
+            @import url("https://fonts.googleapis.com/css?family=Karla:regular,bold");
+
+            body {
+                background-color: #fff;
+            }
+
+            .FlowContainer {
+                max-width: 1200px;
+                margin: auto;
+                padding: 0 1.5rem;
+            }
+
+            @media (max-width: 767px) {
+                .FlowContainer {
+                    padding: 0 1rem;
+                }
+            }
+
+            @font-face {
+                font-family: PlatformMedium;
+                src: url('{!$Resource.Platform_Medium}');
+            }
+
+            h1,
+            h2,
+            h3,
+            h4 {
+                font-family: PlatformMedium, Arial, sans-serif;
+                letter-spacing: 3px;
+            }
+
+            /*-------------------------------------------------*/
+
+            /* RFL Header */
+
+            /*-------------------------------------------------*/
+
+            .rfl-header {
+                width: 100%;
+                color: #44006E;
+                font-size: 1rem;
+                position: relative;
+            }
+
+            .outline {
+                color: #44006E;
+                -webkit-text-fill-color: #FFE15D;
+                -webkit-text-stroke-width: 1px;
+                -webkit-text-stroke-color: #44006E;
+            }
+
+            @media (max-width: 767px) {
+                .rfl-header {
+                    background: #44D1B5;
+                }
+
+                .outline {
+                    -webkit-text-fill-color: #44D1B5;
+                }
+            }
+
+            .rfl-banner-image {
+                width: 100%;
+                display: none;
+            }
+
+            .rfl-h1-strip {
+                display: none;
+            }
+
+            .rfl-h1-mobile {
+                font-size: 32px;
+                text-transform: uppercase;
+                text-align: center;
+                margin-top: 1rem;
+                padding: 0 1rem 0.75rem 1rem;
+            }
+
+            .rfl-h1-strip h1 {
+                font-size: 20px;
+                text-transform: uppercase;
+                display: block;
+            }
+
+            @media (min-width: 768px) {
+                .rfl-h1-strip {
+                    display: block;
+                    background: #FFE15D;
+                    padding: 2.5rem 1.5rem 2.5rem 1.5rem;
+                }
+
+                .rfl-h1-strip span {
+                    margin: 0 45% 0 0%;
+                    display: inline-block;
+                }
+
+                .rfl-h1-strip span:last-child {
+                    font-size: 39px;
+                    margin: 0 35% 0 2%;
+                }
+
+                .rfl-h1-mobile {
+                    display: none;
+                }
+            }
+
+            @media (min-width: 820px) {
+                .rfl-h1-strip h1 {
+                    font-size: 24px;
+                }
+
+                .rfl-h1-strip span:last-child {
+                    margin-left: 8%;
+                }
+            }
+
+            @media (min-width: 992px) {
+                .rfl-h1-strip span {
+                    margin: 0 30% 0 4%;
+                    font-size: 32px;
+                }
+
+                .rfl-h1-strip span:last-child {
+                    font-size: 50px;
+                }
+            }
+
+            @media (min-width: 1200px) {
+                .rfl-h1-strip span:last-child {
+                    margin-left: 12%;
+                }
+            }
+
+            .rfl-ticket {
+                margin: 0 auto;
+                max-width: 500px;
+                width: 100%;
+                font-family: "Karla", Arial, sans-serif;
+                padding: 0.25rem 1.5rem 1.75rem 1.5rem;
+                text-align: center;
+                box-sizing: border-box;
+                position: relative;
+                z-index: 2;
+            }
+
+            @media (max-width: 374px) {
+                .rfl-ticket {
+                    padding: 1rem 0.75rem 2rem 0.75rem;
+                }
+            }
+
+            @media (min-width: 768px) {
+                .rfl-ticket {
+                    width: 280px;
+                    background: #44D1B5;
+                    position: absolute;
+                    right: 3.5%;
+                    top: 0;
+                    z-index: 0;
+                }
+
+                .logo-holder {
+                    max-width: 80%;
+                }
+            }
+
+            @media (min-width: 1024px) {
+                .rfl-ticket {
+                    width: 320px;
+                    right: 7%;
+                }
+            }
+
+            .logo-holder img {
+                width: 100%;
+            }
+
+            .logo-holder {
+                max-width: 280px;
+                margin: 1.25rem auto 0 auto;
+            }
+
+            @media (max-width: 767px) {
+                .rfl-ticket-text {
+                    background: #fff;
+                    padding: 0 1rem 1rem 1rem;
+                    box-shadow: 1px 1px 8px 0 rgba(100, 100, 100, 0.2);
+                    margin-bottom: 0.25rem;
+                }
+            }
+
+            .rfl-ticket p {
+                margin: 0.75rem 0 0 0;
+                display: inline-block;
+            }
+
+            .pledge-link svg {
+                flex-shrink: 0;
+                display: block;
+                transform: rotate(-90deg);
+                width: 36px;
+                height: 26px;
+                fill: #FF6CB5;
+            }
+
+            .pledge-link,
+            .pledge-link:active,
+            .pledge-link:hover,
+            .pledge-link:visited {
+                color: #44006E;
+                text-decoration: none;
+            }
+
+            .pledge-link {
+                font-family: PlatformMedium, Arial, sans-serif;
+                font-size: 2rem;
+                text-transform: uppercase;
+                line-height: 1;
+                display: flex;
+                align-items: center;
+                margin-top: 1.25rem;
+                justify-content: center;
+            }
+
+            @media (max-width: 767px) {
+                .pledge-link {
+                    font-size: 1.35rem;
+                    margin-top: 2rem;
+                }
+
+                .pledge-link span {
+                    display: block;
+                    margin-right: 3px;
+                    padding-top: 2px;
+                }
+
+                .pledge-link svg {
+                    width: 24px;
+                    fill: #FFE15D;
+                }
+
+                .pink-strip-mobile {
+                    height: 3.5rem;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 1rem;
+                    background: #FF6CB5;
+                }
+            }
+
+            .rfl-text-larger {
+                font-size: 1.125rem;
+                font-weight: 800;
+            }
+
+            .rfl-text-smaller {
+                font-size: 0.935rem;
+            }
+
+            .rfl-text-bolder {
+                font-weight: 800;
+            }
+
+            @media (min-width: 768px) {
+                .rfl-banner-image {
+                    background: url('{!$Resource.ru_header_3}');
+                    background-repeat: no-repeat;
+                    background-position: 100%;
+                    background-size: cover;
+                    height: 314px;
+                    display: block;
+                }
+            }
+
+            /*-------------------------------------------------*/
+
+            /* RFL Video Section and links */
+
+            /*-------------------------------------------------*/
+
+            .rfl-video-holder {
+                width: 100%;
+                position: relative;
+                max-width: 768px;
+                margin: -0.5rem auto 0 auto;
+                background: #333;
+            }
+
+            @media (max-width: 767px) {
+                .rfl-video-holder {
+                    margin: -1.2rem 0 0 0;
+                    width: 100%;
+                }
+            }
+
+            .rfl-video {
+                width: 100%;
+                padding-top: 55%;
+                background: #333;
+            }
+
+            .rfl-video iframe {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .rfl-explanation-strip {
+                display: block;
+                background: #FFE15D;
+                padding: 2.5rem 1.5rem 2rem 1.5rem;
+                margin-top: -1rem;
+                font-size: 1rem;
+                font-family: "Karla", Arial, sans-serif;
+                color: #44006E;
+            }
+
+            @media (max-width: 599px) {
+                .rfl-explanation-strip {
+                    padding: 2.5rem 1.5rem;
+                }
+            }
+
+            .rfl-explanation-strip p {
+                max-width: 768px;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .main-links {
+                max-width: 816px;
+                margin: -1.5rem auto 2rem auto;
+                display: flex;
+                padding: 0 1.5rem;
+                box-sizing: border-box;
+                font-size: 1.125rem;
+                justify-content: center;
+            }
+
+            .main-links .link {
+                width: 33.33%;
+                padding: 0.5rem;
+                box-sizing: border-box;
+            }
+
+            .main-links a {
+                background: #FF6CB5;
+                display: block;
+                padding: 0.75rem 1rem;
+                line-height: 1.1;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-family: PlatformMedium, Arial, sans-serif;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: #44006E !important;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            @media (max-width: 767px) {
+                .main-links {
+                    padding: 0 1rem;
+                    font-size: 1rem;
+                    flex-wrap: wrap;
+                }
+
+                .main-links .link {
+                    width: 50%;
+                }
+
+                .main-links .link:nth-child(2) {
+                    padding-right: 0;
+                }
+            }
+
+            @media (max-width: 767px) {
+                .main-links .link {
+                    width: 100%;
+                    padding-left: 0 !important;
+                    padding-right: 0 !important;
+                }
+            }
+
+            .main-links .link svg {
+                display: block;
+                margin-left: 0.35rem;
+                flex-shrink: 0;
+                transform: rotate(-90deg);
+            }
+
+            .main-links .link:last-child {
+                padding-right: 0;
+            }
+
+            .main-links .link:first-child {
+                padding-left: 0;
+            }
+
+            /*-------------------------------------------------*/
+
+            /* RFL Team and Thankyou*/
+
+            /*-------------------------------------------------*/
+
+            .rfl-team {
+                max-width: 816px;
+                margin: 0 auto 3rem auto;
+                padding: 2rem 1.5rem 0 1.5rem;
+                box-sizing: border-box;
+                font-size: 1rem;
+                font-family: "Karla", Arial, sans-serif;
+                color: #44006E;
+            }
+
+            .rfl-team h2,
+            .rfl-team h3 {
+                text-transform: uppercase;
+                font-weight: 800;
+                font-family: PlatformMedium, Arial, sans-serif;
+                letter-spacing: 2px;
+                font-size: 1.125rem;
+                padding-bottom: 0.5rem;
+                display: block;
+            }
+
+            .rfl-team h2 {
+                font-size: 2rem;
+            }
+
+            @media (max-width: 599px) {
+                .rfl-team h2 {
+                    font-size: 1.5rem;
+                }
+            }
+
+            .rfl-team p {
+                margin: 0 auto;
+            }
+
+            @media (max-width: 767px) {
+
+                .rfl-team h2,
+                .rfl-team h2+p,
+                .rfl-team h2+p+p,
+                .rfl-team h2+p+p+p {
+                    text-align: center;
+                }
+            }
+
+            .people {
+                display: flex;
+                margin-top: 1rem;
+                margin-left: -0.5rem;
+                width: calc(100% + 1rem);
+            }
+
+            @media (max-width: 767px) {
+                .people {
+                    margin-left: -1rem;
+                    width: calc(100% + 2rem);
+                }
+            }
+
+            .person {
+                width: 33.33%;
+                padding: 8px;
+                line-height: 1.1;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+            }
+
+            @media (max-width: 599px) {
+                .people {
+                    display: block;
+                }
+
+                .person {
+                    width: 100%;
+                    max-width: 300px;
+                    margin: 0 auto;
+                }
+            }
+
+            .person-img {
+                width: 100%;
+                padding-top: 80%;
+                position: relative;
+            }
+
+            .person img {
+                width: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            .person-description {
+                padding: 1rem 0.75rem;
+                background: #FF6CB5;
+                flex-grow: 1;
+            }
+
+            .rfl-thankyou {
+                margin-top: 2.5rem;
+            }
+
+            .rfl-thankyou p+p {
+                margin-top: 0.75rem;
+            }
+
+            /*-------------------------------------------------*/
+
+            /* RFL Footer */
+
+            /*-------------------------------------------------*/
+
+            .rfl-footer {
+                background: #44D1B5;
+                padding: 3rem 0 2rem 0;
+            }
+
+            @media (min-width: 768px) {
+                .rfl-footer {
+                    padding: 3rem 0;
+                    margin-top: 3rem;
+                }
+            }
+
+            @media (min-width: 1024px) {
+                .rfl-footer {
+                    margin-top: 4rem;
+                }
+            }
+
+            .rfl-footer .logos a:last-child img {
+                margin-top: 10px;
+            }
+
+            .rfl-footer .logos img {
+                display: block;
+                margin: 0 auto;
+            }
+
+            @media (min-width: 500px) {
+                .rfl-footer .logos {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .rfl-footer .logos a {
+                    margin: 0 15px;
+                }
+
+                .rfl-footer .logos a:first-child img {
+                    margin-left: 70px;
+                }
+            }
+
+            .rfl-footer-content {
+                color: #fff;
+                font-family: "Karla", Arial, sans-serif;
+                max-width: 808px;
+                padding: 0 20px;
+                margin: 0 auto;
+                font-size: 1rem;
+                text-align: center;
+            }
+
+            .rfl-footer-content ul {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1rem 4rem 1.5rem 4rem;
+            }
+
+            .rfl-footer-content li {
+                list-style: none;
+                margin: 0;
+            }
+
+            .list-spacer {
+                height: 1rem;
+                width: 1px;
+                background: #fff;
+                display: block;
+            }
+
+            @media (max-width: 767px) {
+                .rfl-footer-content ul {
+                    flex-wrap: wrap;
+                    font-size: 1rem;
+                    border-bottom: 1px solid #fff;
+                    border-top: 1px solid #fff;
+                    max-width: 200px;
+                    margin: 1.5rem auto;
+                    padding: 1rem;
+                    box-sizing: border-box;
+                }
+
+                .rfl-footer-content li {
+                    width: 100%;
+                    padding: 0.25rem 0;
+                }
+
+                .list-spacer {
+                    display: none;
+                }
+            }
+
+            .rfl-no-underline-link a,
+            .rfl-no-underline-link a:active,
+            .rfl-no-underline-link a:hover,
+            .rfl-no-underline-link a:visited {
+                color: #fff;
+                font-weight: 800;
+                text-decoration: none;
+            }
+        </style>
+
+        <!-- Header -->
+        <div class="rfl-header">
+            <div class="rfl-banner-image"></div>
+            <div class="rfl-h1-strip">
+                <h1>
+                    <span>Together we've made a journey </span>
+                    <span class="outline">around the world</span>
+                </h1>
+            </div>
+            <div class="rfl-ticket">
+                <div class="logo-holder">
+                    <a href="https://help-refugees.secure.force.com/aroundtheworldmain" target="_blank">
+                        <img alt="Around the world in 40 days" src="{!$Resource.campaign_logo}" />
+                    </a>
+                </div>
+                <div class="rfl-h1-mobile">
+                    <h1>
+                        <span>Together we've made a journey </span>
+                        <span class="outline">around the world</span>
+                    </h1>
+                </div>
+                <div class="rfl-ticket-text">
+                    <p>
+                        We've done something huge. While staying safe and isolated in our parks, gardens and living rooms, we've come together to
+                        travel the world - all to raise vital funds for refugees facing COVID-19 in dire conditions.
+                        <br />
+                        <span class="rfl-text-bolder">Help Refugees with Thighs of Steel</span>
+                    </p>
+                </div>
+                <a class="pledge-link" href="https://help-refugees.secure.force.com/aroundtheworldsignup">
+                    <span>Pledge your miles now</span>
+                    <svg viewBox="0 0 43 27">
+                        <path d="M4.81804 0.5L0.123535 5.1945L21.3052 26.3762L42.4868 5.1945L37.7923 0.5L21.3052 16.9872L4.81804 0.5Z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+            <div class="pink-strip-mobile"></div>
+        </div>
+
+        <!-- Video -->
+        <div class="rfl-video-holder">
+            <div class="rfl-video">
+                <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" src="https://www.youtube.com/embed/mXsLfIJwGYc"
+                    frameborder="0" height="100%" width="100%"></iframe>
+            </div>
+        </div>
+
+        <!-- Explanation -->
+        <div class="rfl-explanation-strip">
+            <p>
+                Whether walking, biking, running, rolling or doing any other exercise (twenty mins workout = a mile!), between us we want
+                to rack up
+                <span class="rfl-text-larger">24,901 miles</span> in 40 days between 23 May and 1 July.
+            </p>
+            <p>
+                It's audacious, but we believe we can go the distance.
+            </p>
+            <p>
+                To take part, simply pledge your miles, set up a fundraiser, and keep track of your progress, all to
+                <span class="rfl-text-larger">raise vital funds for refugees</span>.
+            </p>
+        </div>
+
+        <!-- Main links -->
+        <nav class="main-links rfl-no-underline-link">
+            <div class="link">
+                <a href="https://help-refugees.secure.force.com/aroundtheworldsignup">
+                    Get started
+                    <svg height="16" viewBox="0 0 43 27" width="30">
+                        <path d="M4.81804 0.5L0.123535 5.1945L21.3052 26.3762L42.4868 5.1945L37.7923 0.5L21.3052 16.9872L4.81804 0.5Z" fill="#44006e"></path>
+                    </svg>
+                </a>
+            </div>
+        </nav>
+
+        <!-- LWC Container -->
+        <div class="FlowContainer slds-card__body">
+            <div id="rfl-home" class="slds-scope" data-ltngout-rendered-by="6:0" />
+        </div>
+
+        <div>
+            <p id="idEl"></p>
+        </div>
+
+        <!-- Meet the team -->
+        <div class="rfl-team">
+            <h2>
+                Meet the team
+            </h2>
+            <p>Here are just a few of the heroes who’ve joined our journey around the world, to raise vital funds for refugees.</p>
+            <div class="people">
+                <div class="person">
+                    <div class="person-img">
+                        <img src="{!$Resource.person1}" />
+                    </div>
+                    <div class="person-description">
+                        <h3>Hina</h3>
+                        <p>
+                            <span class="q rfl-text-bolder">How: </span>Zumba classes</p>
+                        <p>
+                            <span class="q rfl-text-bolder">Where: </span>My garden</p>
+                        <p>
+                            <span class="q rfl-text-bolder">Why: </span>Since lockdown, I’ve moved my weekly Zumba classes to my garden. I’m using them now
+                            to raise money for Choose Love, whose partners are doing their best to help people in camps access
+                            clean water and to keep themselves as safe as possible at this time. Working in the NHS, I know
+                            how important hygiene and sanitation is to stop the spread of coronavirus.</p>
+                    </div>
+                </div>
+                <div class="person">
+                    <div class="person-img">
+                        <img src="{!$Resource.person2}" />
+                    </div>
+                    <div class="person-description">
+                        <h3>Alex</h3>
+                        <p>
+                            <span class="q rfl-text-bolder">How: </span>I'll be cycling 15 miles each day. This will amount to 600 miles in the 40 days!</p>
+                        <p>
+                            <span class="q rfl-text-bolder">Where: </span>I'm working full-time as a doctor at the moment, so I'll take a longer cycling
+                            route there and back each day.</p>
+                        <p>
+                            <span class="q rfl-text-bolder">Why: </span>Covid-19 can affect everyone, but some are more at risk than others. So many refugees
+                            have less ability to self-isolate, don't have access to nutritious food, or sufficient healthcare.
+                            It's important to do what we can for people regardless of borders.</p>
+                    </div>
+                </div>
+                <div class="person">
+                    <div class="person-img">
+                        <img src="{!$Resource.person3}" />
+                    </div>
+                    <div class="person-description">
+                        <h3>Leslie and Jouja</h3>
+                        <p>
+                            <span class="q rfl-text-bolder">How: </span>Freestyle dance sessions</p>
+                        <p>
+                            <span class="q rfl-text-bolder">Where: </span>At home</p>
+                        <p>
+                            <span class="q rfl-text-bolder">Why: </span>The importance of physical exercise for mental health is especially significant in
+                            a time like this. Knowing that other people are taking part in this challenge is a good reminder
+                            of solidarity in a time of crisis. We're doing it to support Choose Love’s amazing work, helping
+                            those in need both in the UK and around the world.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rfl-thankyou">
+                <h2>
+                    Where your funds go
+                </h2>
+                <p>
+                    For many refugees, social distancing and increased hand washing are an impossible luxury, leaving them incredibly vulnerable
+                    to this pandemic.
+                </p>
+                <p>
+                    Help Refugees' partners are working across Europe, the Middle East and the US-Mexico border - stepping up support for medical
+                    services and sanitation, and continuing to provide essential food, shelter and so much more.
+                </p>
+                <p>
+                    <span class="rfl-text-bolder">Every penny makes a huge difference to this work. Thank you for your inspiring support.</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="rfl-footer">
+            <div class="rfl-footer-content rfl-no-underline-link">
+                <div class="logos">
+                    <a href="https://helprefugees.org/" target="_blank">
+                        <img alt="Help Refugees logo" src="{!$Resource.help_refugees_logo}" style="width: 100px;" />
+                    </a>
+                    <a href="https://choose.love/" target="_blank">
+                        <img alt="Choose Love logo" src="{!$Resource.Choose_Love_Logo}" style="width: 100px;" />
+                    </a>
+                    <a href="https://www.thighsofsteel.com/" target="_blank">
+                        <img alt="Thighs of Steel logo" src="{!$Resource.t_o_s_logo}" style="width: 150px;" />
+                    </a>
+                </div>
+                <nav>
+                    <ul class="rfl-text-larger">
+                        <li>
+                            <a href="https://helprefugees.org/" target="_blank">
+                                Help Refugees Home
+                            </a>
+                        </li>
+                        <span aria-hidden="true" class="list-spacer"></span>
+                        <li>
+                            <a href="https://helprefugees.org/projects/" target="_blank">
+                                What we do
+                            </a>
+                        </li>
+                        <span aria-hidden="true" class="list-spacer"></span>
+                        <li>
+                            <a href="https://donate.helprefugees.org/campaigns/around-the-world/" target="_blank">
+                                Donate
+                            </a>
+                        </li>
+                        <span aria-hidden="true" class="list-spacer"></span>
+                        <li>
+                            <a href="mailto:aroundtheworld@helprefugees.org" target="_blank">
+                                Contact us
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <p class="rfl-text-smaller">
+                    Help Refugees Limited, Company No 09842577, works under the auspices of Prism the Gift Fund, Charity No 1099682. Donations
+                    raised through this website are paid to the Help Refugees restricted fund held by Prism The Gift Fund.
+                </p>
+            </div>
+        </div>
+
+        <!-- Lightning Web Component -->
+        <script>
+
+            /*
+            Use Lightning Web Components in Visualforce Pages
+
+            https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.use_visualforce
+            */
+
+            /*
+                Dynamically Creating Components
+
+                https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/js_cb_dynamic_cmp_async.htm
+
+                The syntax is:
+                    $A.createComponent(String type, Object attributes, function callback)
+
+                    type—The type of component to create; for example, "lightning:button".
+                    attributes—A map of attributes for the component, including the local Id (aura:id).
+                    callback(cmp, status, errorMessage)—The callback to invoke after the component is created.
+
+                    The callback has three parameters.
+
+                    cmp—The component that was created. This enables you to do something with the new component, such as add it to the body of the component that creates it. If there’s an error, cmp is null.
+                    status—The status of the call. The possible values are SUCCESS, INCOMPLETE, or ERROR. Always check that the status is SUCCESS before you try to use the component.
+                    errorMessage—The error message if the status is ERROR.
+            */
+
+            var idParam = "";
+
+            /* Create the top-level RunForLove Scoreboard Lightning Web Component */
+
+            $Lightning.use("c:HR_RFL_App", function () {
+                $Lightning.createComponent("c:hrRunForLoveResults",
+                    { homePageId: idParam },
+                    "rfl-home",
+                    function (cmp) {
+                        console.log("hrRunForLoveResults was created");
+                        // do some stuff
+                    }
+                );
+            });
+        </script>
+
+        <div id="auraErrorMessage"></div>
+        <!--render facet: 5:0-->
+    </body>
+
+</apex:page>

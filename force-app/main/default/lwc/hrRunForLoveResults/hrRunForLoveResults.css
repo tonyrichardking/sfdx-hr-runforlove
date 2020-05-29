@@ -1,0 +1,563 @@
+/* RunForLoveScoreboardRunnersInfo.css */
+
+/* rfl-runners-header */
+
+/* .rfl-runners-header {
+  display: none;
+}
+ */
+/* rfl-runners-info */
+
+.rfl-runners-info {
+  margin-left: -1.5rem;
+  width: calc(100% + 3rem);
+  background: rgba(68, 209, 181, 0.05);
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 0.5rem 1.5rem !important;
+}
+
+.rfl-runners-info .slds-grid {
+  max-width: 768px;
+  margin: 0 auto;
+  font-size: 1rem;
+  font-family: "Karla", Arial, sans-serif;
+  background: #fff;
+  box-shadow: 1px 1px 8px 0 rgba(100, 100, 100, 0.2);
+}
+
+@media (max-width: 767px) {
+  .rfl-runners-info .slds-grid {
+    flex-wrap: wrap;
+  }
+
+  .rfl-runners-info {
+    margin-left: -1rem;
+    width: calc(100% + 2rem);
+    padding: 0.5rem 1rem !important;
+  }
+}
+
+.rfl-runners-info .slds-col {
+  position: relative;
+  z-index: 2;
+}
+
+/* Header with 'LATEST PARTICIPANTS and 'Show more...' */
+
+.rfl-runners-header-1 {
+  color: #44006e;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: PlatformMedium, Arial, sans-serif;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.rfl-runners-header-2 {
+  color: #ff6cb5;
+  font-size: 1.5rem;
+  font-family: PlatformMedium, Arial, sans-serif;
+  margin-left: auto;
+}
+
+/* 
+original 
+*/
+
+/* .rfl-runners-header + div > .rfl-runners-info {
+  padding-top: 2rem !important;
+}
+
+.rfl-runners-header + div > .rfl-runners-info .slds-grid {
+  padding-top: 4rem;
+  position: relative;
+  background: transparent;
+  box-shadow: none;
+}
+
+.rfl-runners-header + div > .rfl-runners-info .slds-grid:after {
+  content: "Latest participants";
+  color: #44006e;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: PlatformMedium, Arial, sans-serif;
+  letter-spacing: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media (max-width: 767px) {
+  .rfl-runners-header + div > .rfl-runners-info .slds-grid:after {
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+}
+
+@media (max-width: 599px) {
+  .rfl-runners-header + div > .rfl-runners-info .slds-grid:after {
+    font-size: 1.5rem;
+  }
+}
+
+.rfl-runners-header + div > .rfl-runners-info .slds-grid:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 4rem;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 1px 1px 8px 0 rgba(100, 100, 100, 0.2);
+} */
+
+/* Apply only to the first 'runner' entry */
+
+/* .rfl-runners-header + div > .rfl-runners-info {
+  padding-top: 2rem !important;
+}
+
+.rfl-runners-header + div > .rfl-runners-info .slds-grid {
+  padding-top: 4rem;
+  position: relative;
+  background: transparent;
+  box-shadow: none;
+}
+
+.rfl-runners-header + div > .rfl-runners-info .slds-grid:after {
+  content: "Latest participants";
+  color: #44006e;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: PlatformMedium, Arial, sans-serif;
+  letter-spacing: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media (max-width: 767px) {
+  .rfl-runners-header + div > .rfl-runners-info .slds-grid:after {
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+}
+
+@media (max-width: 599px) {
+  .rfl-runners-header + div > .rfl-runners-info .slds-grid:after {
+    font-size: 1.5rem;
+  }
+}
+
+.rfl-runners-header + div > .rfl-runners-info .slds-grid:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 4rem;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 1px 1px 8px 0 rgba(100, 100, 100, 0.2);
+} */
+
+/* Last 'runner' entry */
+.slds-tile__detail div:last-child .rfl-runners-info {
+  padding-bottom: 3rem !important;
+}
+
+/* Each runner entry - name */
+.rfl-runners-info .slds-grid > .slds-col:first-child {
+  width: 33.33%;
+  padding: 0.75rem;
+  border-right: 1px solid #44006e;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.rfl-runners-info .slds-grid > .slds-col:first-child div {
+  margin-right: 0.25rem !important;
+}
+
+@media (max-width: 767px) {
+  .rfl-runners-info .slds-grid > .slds-col:first-child {
+    width: 50%;
+    border-right: 0;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 599px) {
+  .rfl-runners-info .slds-grid > .slds-col:first-child {
+    width: 100%;
+    border-right: 0;
+    border-bottom: 1px solid #44006e;
+  }
+}
+
+/* Each runner entry - miles completed & pledged. Could these go in a single column? */
+
+.rfl-runners-info .slds-grid > .slds-col:nth-child(3) {
+  width: 33.33%;
+  padding: 0.75rem;
+  color: #44006e;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+  .rfl-runners-info .slds-grid > .slds-col:nth-child(3) {
+    width: 25%;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 599px) {
+  .rfl-runners-info .slds-grid > .slds-col:nth-child(3) {
+    width: 50%;
+    flex-shrink: 0;
+  }
+}
+
+.rfl-runners-info .slds-grid > .slds-col:first-child p {
+  padding-left: 0.75rem;
+  line-height: 1.3;
+  color: #44006e;
+  font-weight: 800;
+}
+
+/* Fundraising link */
+
+.rfl-runners-info .slds-grid > .slds-col:nth-child(2) {
+  background: currentColor;
+  width: 33.33%;
+  order: 10;
+  flex-shrink: 0;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  color: #44006e;
+}
+
+@media (max-width: 767px) {
+  .rfl-runners-info .slds-grid > .slds-col:nth-child(2) {
+    width: 100%;
+    min-height: 2rem;
+    flex-shrink: 0;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    color: #44006e;
+  }
+}
+
+/* Number of runs. Hide for now as it wasn't in Lauren's mockup */
+.rfl-runners-info .slds-grid > .slds-col:nth-child(5) {
+  display: none;
+}
+
+/* Get alternating colours */
+.slds-tile__detail div:nth-child(4n + 2) .rfl-runners-info {
+  color: #44006e;
+}
+
+.slds-tile__detail
+  div:nth-child(4n + 2)
+  .rfl-runners-info
+  .slds-grid
+  > .slds-col:first-child:before {
+  content: url("star.svg");
+}
+
+.slds-tile__detail div:nth-child(4n + 3) .rfl-runners-info {
+  color: #ffe15d;
+}
+
+.slds-tile__detail
+  div:nth-child(4n + 3)
+  .rfl-runners-info
+  .slds-grid
+  > .slds-col:first-child:before {
+  content: url("star_yellow.svg");
+}
+
+.slds-tile__detail div:nth-child(4n) .rfl-runners-info {
+  color: #ff6cb5;
+}
+
+.slds-tile__detail
+  div:nth-child(4n)
+  .rfl-runners-info
+  .slds-grid
+  > .slds-col:first-child:before {
+  content: url("star_pink.svg");
+}
+
+.slds-tile__detail div:nth-child(4n + 1) .rfl-runners-info {
+  color: #44d1b5;
+}
+
+.slds-tile__detail
+  div:nth-child(4n + 1)
+  .rfl-runners-info
+  .slds-grid
+  > .slds-col:first-child:before {
+  content: url("star_green.svg");
+}
+
+.slds-tile__detail div:last-child > .rfl-runners-info {
+  padding-bottom: 3rem !important;
+}
+
+/* RunForLoveScoreboardStats.css */
+
+.rfl-stats-tile,
+.slds-progress-bar {
+  max-width: 768px;
+  margin: 0 auto 3rem auto;
+  font-size: 1rem;
+  font-family: "Karla", Arial, sans-serif;
+  border: 0;
+}
+
+.rfl-stats-tile:before {
+  content: "The journey so far";
+  color: #44006e;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: PlatformMedium, Arial, sans-serif;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 767px) {
+  .rfl-stats-tile:before {
+    text-align: center;
+    display: block;
+  }
+}
+
+@media (max-width: 599px) {
+  .rfl-stats-tile:before {
+    font-size: 1.5rem;
+  }
+}
+
+.rfl-stats-tile > .slds-grid > .slds-col:first-child,
+.rfl-stats-tile > .slds-grid > .slds-col:nth-child(4),
+.rfl-stats-tile > .slds-grid > .slds-col:nth-child(6),
+.rfl-stats-tile > .slds-grid > .slds-col:nth-child(7) {
+  display: none;
+}
+
+.rfl-stats-tile > .slds-grid {
+  box-shadow: 1px 1px 8px 0 rgba(100, 100, 100, 0.2);
+  margin: 4px 0 10px 0;
+  background-color: #44d1b5;
+}
+
+.rfl-stats-tile > .slds-grid > .slds-col {
+  color: #fff;
+  padding: 0.5rem 0;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  display: flex;
+  justify-content: space-between;
+  width: 33.33%;
+  line-height: 1.2;
+  align-items: flex-end;
+}
+
+@media (max-width: 767px) {
+  .rfl-stats-tile > .slds-grid > .slds-col {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .rfl-stats-tile > .slds-grid {
+    flex-wrap: wrap;
+    max-width: 430px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .rfl-stats-tile > .slds-grid > .slds-col {
+    width: 100%;
+  }
+}
+
+.rfl-stats-tile .slds-p-horizontal_small:first-child {
+  font-weight: 400;
+}
+
+.rfl-stats-tile .slds-p-horizontal_small:last-child {
+  font-weight: 800;
+}
+
+@media (min-width: 600px) {
+  .rfl-stats-tile > .slds-grid > .slds-col:not(:nth-child(5)) {
+    border-right: 1px #fff solid;
+  }
+}
+
+@media (max-width: 599px) {
+  .rfl-stats-tile > .slds-grid > .slds-col:not(:nth-child(5)) {
+    border-bottom: 1px #fff solid;
+  }
+}
+
+/* Fundraising */
+
+.rfl-fund-tile {
+  max-width: 768px;
+  margin: 0 auto 3rem auto;
+  font-size: 1rem;
+  font-family: "Karla", Arial, sans-serif;
+  border: 0;
+}
+
+@media (max-width: 767px) {
+  .rfl-fund-tile:before {
+    text-align: center;
+    display: block;
+  }
+}
+
+@media (max-width: 599px) {
+  .rfl-fund-tile:before {
+    font-size: 1.5rem;
+  }
+}
+
+.rfl-fund-tile > .slds-grid {
+  box-shadow: 1px 1px 8px 0 rgba(100, 100, 100, 0.2);
+  margin: 4px 0 10px 0;
+  background-color: #44d1b5;
+}
+
+.rfl-fund-tile > .slds-grid > .slds-col {
+  color: #fff;
+  padding: 0.5rem 0;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+  width: 33.33%;
+  line-height: 1.2;
+  align-items: flex-end;
+}
+
+@media (max-width: 767px) {
+  .rfl-fund-tile > .slds-grid > .slds-col {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .rfl-fund-tile > .slds-grid {
+    flex-wrap: wrap;
+    max-width: 430px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .rfl-fund-tile > .slds-grid > .slds-col {
+    width: 100%;
+  }
+}
+
+.rfl-fund-tile .slds-p-horizontal_small:first-child {
+  font-weight: 400;
+}
+
+.rfl-fund-tile .slds-p-horizontal_small:last-child {
+  font-weight: 800;
+}
+
+@media (min-width: 600px) {
+  .rfl-fund-tile > .slds-grid > .slds-col:not(:nth-child(5)) {
+    border-right: 1px #fff solid;
+  }
+}
+
+@media (max-width: 599px) {
+  .rfl-fund-tile > .slds-grid > .slds-col:not(:nth-child(5)) {
+    border-bottom: 1px #fff solid;
+  }
+}
+
+/* 
+
+Progress bar 
+
+*/
+
+.wrapper {
+  max-width: 768px;
+  margin: -1rem auto 2.5rem auto;
+  padding: 0;
+  display: block;
+}
+
+@media (max-width: 599px) {
+  .wrapper {
+    max-width: 430px;
+  }
+}
+
+.wrapper[c-hrRunForLoveScoreboard_hrRunForLoveScoreboard]
+  > label[c-hrRunForLoveScoreboard_hrRunForLoveScoreboard] {
+  color: #44006e;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.progress-label[c-hrRunForLoveScoreboard_hrRunForLoveScoreboard] {
+  font-size: 28px;
+  padding-right: 0.25rem;
+  margin-top: -0.5rem;
+  font-weight: 800;
+}
+
+.progress-bar-wrapper[c-hrRunForLoveScoreboard_hrRunForLoveScoreboard] {
+  background-color: #f1f1f1 !important;
+  border-radius: 12px;
+  height: 60px;
+  border: 2px solid #44006e;
+  width: 100%;
+}
+
+.progress-bar-wrapper[c-hrRunForLoveScoreboard_hrRunForLoveScoreboard]
+  > .progress-bar[c-hrRunForLoveScoreboard_hrRunForLoveScoreboard] {
+  height: 100%;
+  width: 50%;
+  padding: 0 12px;
+  border-radius: 12px;
+  background-color: #000;
+  box-sizing: border-box;
+  border: 0 solid #44d1b5;
+  background-color: #44d1b5;
+  position: relative;
+  transition: width 1s linear;
+}
+
+.progress-bar-wrapper[c-hrRunForLoveScoreboard_hrRunForLoveScoreboard]
+  > .progress-bar[c-hrRunForLoveScoreboard_hrRunForLoveScoreboard]:before {
+  position: absolute;
+}
+
+.progress-bar-wrapper[c-hrRunForLoveScoreboard_hrRunForLoveScoreboard]
+  > .progress-bar[c-hrRunForLoveScoreboard_hrRunForLoveScoreboard]:after {
+  position: absolute;
+  padding-top: 0px;
+  right: 5px;
+  content: url("https://s3.amazonaws.com/ak-helprefugees/images/editor-2020-05-12.png");
+}

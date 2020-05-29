@@ -1,0 +1,152 @@
+<template>
+    <div class="rfl-block">
+        <template if:true={theScoreboard}>
+            <lightning-tile>
+                <div class="rfl-stats-tile">
+                    <div class="slds-grid">
+                        <div class="slds-col">
+                            <b class="slds-p-horizontal_small">Target Miles: </b>
+                            <p class="slds-p-horizontal_small">{theCollectiveTargetMiles}</p>
+                        </div>
+                        <div class="slds-col">
+                            <b class="slds-p-horizontal_small">Miles Pledged: </b>
+                            <p class="slds-p-horizontal_small">{theTotalMilesPledged}
+                            </p>
+                        </div>
+                        <div class="slds-col">
+                            <b class="slds-p-horizontal_small">Miles
+                                Completed: </b>
+                            <p class="slds-p-horizontal_small">{theTotalMilesCompleted}</p>
+                        </div>
+                        <div class="slds-col">
+                            <b class="slds-p-horizontal_small">Miles To Target: </b>
+                            <p class="slds-p-horizontal_small">{theMilesToReachTarget}</p>
+                        </div>
+                        <div class="slds-col">
+                            <b class="slds-p-horizontal_small">Days To Go: </b>
+                            <p class="slds-p-horizontal_small">{theDaysToGo}</p>
+                        </div>
+                        <div class="slds-col">
+                            <b class="slds-p-horizontal_small">Runs Completed: </b>
+                            <p class="slds-p-horizontal_small">{theTotalRunsCompleted}</p>
+                        </div>
+                        <div class="slds-col">
+                            <b class="slds-p-horizontal_small">No. Runners: </b>
+                            <p class="slds-p-horizontal_small">{theTotalRunners}</p>
+                        </div>
+                    </div>
+                </div>
+            </lightning-tile>
+        </template>
+    </div>
+
+    <!-- Progress bar -->
+    <div class='wrapper'>
+        <label>
+            <span class='progress-label'>0%</span> of our journey completed
+        </label>
+        <div class="progress-bar-wrapper">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+
+    <!-- Fundraising total -->
+    <lightning-tile>
+        <div class="rfl-fund-tile">
+            <div class="slds-grid">
+                <div class="slds-col">
+                    <p class="slds-p-horizontal_small">Fundraising target</p>
+                    <p class="slds-p-horizontal_small">£{theFundraisingTarget}</p>
+                </div>
+                <div class="slds-col">
+                    <p class="slds-p-horizontal_small">Amount raised</p>
+                    <p class="slds-p-horizontal_small">£{theFundraisingTotal}</p>
+                </div>
+                <div class="slds-col">
+                    <p class="slds-p-horizontal_small">Fundraising to go</p>
+                    <p class="slds-p-horizontal_small">£{theFundraisingAmountToGo}</p>
+                </div>
+            </div>
+        </div>
+    </lightning-tile>
+
+    <!-- List of runners -->
+    <template if:true={theHomePages}>
+        <lightning-tile title="All The Runners">
+            <div class="rfl-runners-info">
+                <div class="slds-grid">
+                    <div class="slds-col">
+                        <div class="rfl-runners-header-1">
+                            Latest updates
+                        </div>
+                        <div class="rfl-runners-header-2">
+
+                            <!-- 'Show more home pages' button -->
+                            <lightning-button variant="base" label="Show more..." title="Show more home pages"
+                                onclick={handleMore} class="slds-m-left_x-small"></lightning-button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <template for:each={theHomePages} for:item="homePage">
+                <div key={homePage.Id}>
+
+                    <div class="slds-box rfl-runners-info">
+                        <div class="slds-grid">
+                            <div class="slds-col">
+                                <div style="display: block; margin-right: auto">
+                                    <img src={star_purple}>
+                                </div>
+                                <p>{homePage.T4R_Runners_Name__c}</p>
+                            </div>
+
+                            <template if:true={homePage.T4R_Has_fundraising_page__c}>
+                                <div class="slds-col" style="background-color: #44006e">
+                                    <div style="text-align: center; margin: auto; width: 90%; padding: 10px 0">
+                                        <p><b>
+                                                <a href={homePage.T4R_Fundraising_page__c} target="_blank"
+                                                    style="color: #ffffff">
+                                                    Fundraising Page for {homePage.T4R_Runners_first_name__c}</a>
+                                            </b></p>
+                                    </div>
+                                </div>
+                            </template>
+                            <template if:false={homePage.T4R_Has_fundraising_page__c}>
+                                <div class="slds-col" style="background-color: #ff6cb5">
+                                    <div style="text-align: center; margin: auto; width: 90%; padding: 10px 0">
+                                        <p><b>No fundraising page yet, so please support
+                                                {homePage.T4R_Runners_first_name__c} by&nbsp;
+                                                <a href="https://donate.helprefugees.org/campaigns/around-the-world/"
+                                                    target="_blank" style="color: #ffffff">donating&nbsp;here.</a>
+                                            </b></p>
+                                    </div>
+                                </div>
+                            </template>
+
+                            <div class="slds-col">
+                                <p>
+                                    <b>{homePage.T4R_Current_miles__c}</b> miles completed
+                                </p>
+                                <p>
+                                    <b>{homePage.T4R_Target_miles__c}</b> miles pledged
+                                </p>
+                                <p>
+                                    <b>{homePage.T4R_Latest_run_miles__c}</b> miles latest activity
+                                </p>
+                            </div>
+                            <!--                             <div class="slds-col slds-size_1-of-5">
+                                <p>
+                                    <lightning-formatted-number value={homePage.T4R_Runs_completed__c}>
+                                    </lightning-formatted-number>
+                                </p>
+                            </div> -->
+                        </div>
+                    </div>
+
+                </div>
+            </template>
+        </lightning-tile>
+    </template>
+</template>
