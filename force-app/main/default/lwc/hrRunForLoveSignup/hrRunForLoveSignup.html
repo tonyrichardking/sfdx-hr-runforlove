@@ -1,0 +1,67 @@
+<template>
+
+    <!-- Contact details form-->
+    <template if:true={showSignup}>
+        <lightning-tile>
+            <div class="rfl-signup-header">
+                <!--                 <p>Sign up to register here and we will send you a link to set up your fundraiser, and to a personal
+                    page where you can register and track
+                    your miles.</p>
+                <p>Enter your name, email, and data privacy choices in the boxes below, then press 'Save'.</p> -->
+                <!-- <p>First Name {theFirstname}; Last Name {theLastname}; Email {theEmail}; Target Miles {theMiles}</p> -->
+            </div>
+
+            <!-- Input boxes to enter the Contact details -->
+            <div class="rfl-signup-inputs">
+                <lightning-input type="text" label="First Name" required onchange={handleFirstname}></lightning-input>
+                <lightning-input type="text" label="Last Name" required onchange={handleLastname}></lightning-input>
+                <lightning-input type="email" label="Email" required onchange={handleEmail}></lightning-input>
+                <lightning-input type="number" label="Target Miles" required onchange={handleMiles}></lightning-input>
+                <lightning-input type="checkbox"
+                    label="I AM PARTICIPATING AS PART OF CYCLING FUNDRAISING GROUP 'THIGHS OF STEEL'**"
+                    onchange={handleTos}>
+                </lightning-input>
+                <p>** We will share your registration information with Thighs of Steel in adherence with GDPR
+                    legislation.</p>
+                <p>&nbsp;</p>
+
+                <lightning-combobox name="gdprAgreement"
+                    label="I PERMIT HELP REFUGEES / CHOOSE LOVE TO EMAIL ME ABOUT THIS CAMPAIGN." value=""
+                    placeholder="You must select 'I Agree' to proceed" options={gdprOptions}
+                    onchange={handleGdprAgreement} required></lightning-combobox>
+
+                <lightning-combobox name="newsletterAgreement"
+                    label="I WOULD LIKE TO SUBSCRIBE TO THE HELP REFUGEES / CHOOSE LOVE NEWSLETTER." value=""
+                    placeholder="You must select 'Yes' or 'No' to proceed" options={newsletterOptions}
+                    onchange={handleNewsletterAgreement} required></lightning-combobox>
+
+                <template if:true={showRequiredError}>
+                    <div class="rfl-signup-errormessage">
+                        <p>Please enter values for all the input boxes.</p>
+                    </div>
+                </template>
+
+                <!-- Button to update the Contact details -->
+                <lightning-button variant="Success" label="Save" title="Save" icon-name="utility:save"
+                    class="slds-m-left_x-small" onclick={handleSave}></lightning-button>
+            </div>
+        </lightning-tile>
+    </template>
+
+    <template if:false={showSignup}>
+
+        <!-- Thank You -->
+        <lightning-tile title="Thank You">
+            <div class="rfl-signup-thankyou">
+                <p>Thank you for registering {theFirstname}!</p>
+                <p>Now you can set up your fundraising page. <lightning-formatted-url
+                        value="https://donate.helprefugees.org/supporters/create/around-the-world/"
+                        tooltip="Go to https://donate.helprefugees.org/supporters/create/around-the-world/"
+                        target="_blank"></lightning-formatted-url>
+                </p>
+                <p>You'll receive an email soon with a link to your miles tracker page.</p>
+            </div>
+        </lightning-tile>
+
+    </template>
+</template>

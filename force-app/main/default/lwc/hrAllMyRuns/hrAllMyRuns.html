@@ -1,0 +1,105 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+
+            <template if:true={showtooEarlyError}>
+                <div class="rfl-run-errormessage">
+                    <p>Oops...false start! There's still {daystostart} day to go until the starting pistol. You can
+                        only
+                        log your miles from 23rd May.</p>
+                </div>
+            </template>
+
+            <template if:true={showtooLateError}>
+                <div class="rfl-run-errormessage">
+                    <p>Sorry, we can't count any more runs as the 40 days are up.</p>
+                </div>
+            </template>
+
+            <!-- Log a new run -->
+            <template if:false={toolate}>
+                <lightning-tile>
+                    <div class="rfl-log-tile">
+                        <div class="rfl-log-header">
+                            <b>Log a run</b>
+                        </div>
+
+                        <div class="slds-grid slds-grid_vertical">
+                            <div class="slds-col">
+                                <p>Enter your latest run in the boxes below, then press 'Save'.</p>
+                                <!-- <p>Latest run {theDate}; {theMileage} miles; {theTime} minutes; {theNotes}</p> -->
+                            </div>
+
+                            <!-- Input boxes to log a new run -->
+                            <div class="slds-col">
+                                <lightning-input type="date" label="Date" required onchange={handleDate}
+                                    value={theDate}>
+                                </lightning-input>
+                            </div>
+                            <div class="slds-col">
+                                <lightning-input type="number" label="Distance (miles)" required
+                                    onchange={handleMileage} value={theMileage}>
+                                </lightning-input>
+                            </div>
+                            <div class="slds-col">
+                                <lightning-input type="number" label="Time (minutes)" onchange={handleTime}
+                                    value={theTime}>
+                                </lightning-input>
+                            </div>
+                            <div class="slds-col">
+                                <lightning-input type="text" label="Notes" onchange={handleNotes} value={theNotes}>
+                                </lightning-input>
+                            </div>
+
+                            <!-- Button to update the list of completed runs -->
+                            <div class="rfl-button">
+                                <lightning-button variant="base" label="SAVE" title="Save" onclick={handleSave}>
+                                </lightning-button>
+                            </div>
+                        </div>
+                    </div>
+                </lightning-tile>
+            </template>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_8-of-12">
+            <template if:true={therunsforlove}>
+
+                <!-- List of completed runs -->
+                <div class="slds-grid slds-grid_vertical">
+                    <template for:each={therunsforlove.data} for:item="runForLove">
+                        <div key={runForLove.Id}>
+
+                            <!-- One completed run -->
+                            <lightning-tile>
+                                <div class="rfl-run-tile">
+                                    <div class="rfl-run-header">
+                                        <div style="display: block; margin-right: auto">
+                                            <img src={journey}>
+                                        </div>
+                                        <lightning-formatted-date-time value={runForLove.T4R_Date_of_run__c}>
+                                        </lightning-formatted-date-time>
+                                    </div>
+
+                                    <div class="slds-grid slds-grid_vertical">
+                                        <div class="slds-grid slds-box slds-box_small">
+                                            <div class="slds-col">
+                                                <p>{runForLove.T4R_Miles_of_run__c} Miles</p>
+                                            </div>
+                                            <div class="slds-col">
+                                                <p>{runForLove.T4R_Time_in_minutes__c} Minutes</p>
+                                            </div>
+                                        </div>
+                                        <div class="slds-col slds-box slds-box_small">
+                                            <p>{runForLove.T4R_Notes__c}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </lightning-tile>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

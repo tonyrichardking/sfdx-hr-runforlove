@@ -1,0 +1,479 @@
+.rfl-home-tile[c-hrRunForLoveHome_hrRunForLoveHome] {
+  max-width: 768px;
+  margin: 0 auto;
+  font-size: 1rem;
+  font-family: Karla, Arial, sans-serif;
+}
+
+.rfl-home-tile[c-hrRunForLoveHome_hrRunForLoveHome]
+  .slds-dl_horizontal[c-hrRunForLoveHome_hrRunForLoveHome] {
+  display: flex;
+}
+
+.rfl-home-tile[c-hrRunForLoveHome_hrRunForLoveHome]
+  .slds-dl_horizontal__label[c-hrRunForLoveHome_hrRunForLoveHome] {
+  width: auto !important;
+  padding-left: 1rem;
+}
+
+.rfl-home-tile[c-hrRunForLoveHome_hrRunForLoveHome]
+  .slds-dl_horizontal__label[c-hrRunForLoveHome_hrRunForLoveHome]
+  b[c-hrRunForLoveHome_hrRunForLoveHome] {
+  font-weight: 400 !important;
+}
+
+.rfl-home-tile[c-hrRunForLoveHome_hrRunForLoveHome]
+  .slds-dl_horizontal__detail[c-hrRunForLoveHome_hrRunForLoveHome] {
+  width: auto !important;
+  margin-left: auto;
+  padding-right: 1rem;
+  font-weight: 600;
+}
+
+.slds-dl_horizontal__label.rfl-welcome-1[c-hrRunForLoveHome_hrRunForLoveHome] {
+  color: #44006e;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 800;
+  padding-left: 0 !important;
+  padding-right: 0.5rem !important;
+  font-family: PlatformMedium, Arial, sans-serif;
+  letter-spacing: 2px;
+  line-height: 0.85;
+}
+
+.slds-dl_horizontal__detail.rfl-welcome-2[c-hrRunForLoveHome_hrRunForLoveHome] {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 0.25rem;
+  color: #44006e;
+  font-size: 1.35rem;
+  font-weight: 500 !important;
+  margin-left: 0 !important;
+}
+
+.slds-grid.rfl-stats-1[c-hrRunForLoveHome_hrRunForLoveHome] {
+  background-color: #44d1b5;
+  color: #fff;
+  margin: 4px 0 10px;
+  text-transform: uppercase;
+  box-shadow: 1px 1px 8px 0 hsla(0, 0%, 39%, 0.2);
+}
+
+@media (min-width: 768px) {
+  .slds-grid.rfl-stats-1[c-hrRunForLoveHome_hrRunForLoveHome] {
+    font-size: 1.125rem;
+  }
+}
+
+.rfl-home-tile[c-hrRunForLoveHome_hrRunForLoveHome]
+  .slds-size_1-of-2[c-hrRunForLoveHome_hrRunForLoveHome],
+.rfl-home-tile[c-hrRunForLoveHome_hrRunForLoveHome]
+  .slds-size_1-of-3[c-hrRunForLoveHome_hrRunForLoveHome] {
+  padding: 0.5rem 0 !important;
+}
+
+@media (max-width: 599px) {
+  .rfl-stats-1[c-hrRunForLoveHome_hrRunForLoveHome] {
+    flex-wrap: wrap;
+  }
+
+  .rfl-home-tile[c-hrRunForLoveHome_hrRunForLoveHome]
+    .slds-size_1-of-2[c-hrRunForLoveHome_hrRunForLoveHome],
+  .rfl-home-tile[c-hrRunForLoveHome_hrRunForLoveHome]
+    .slds-size_1-of-3[c-hrRunForLoveHome_hrRunForLoveHome] {
+    width: 100% !important;
+  }
+
+  .rfl-home-tile[c-hrRunForLoveHome_hrRunForLoveHome]
+    .slds-size_1-of-3:not(:last-child)[c-hrRunForLoveHome_hrRunForLoveHome] {
+    border-bottom: 1px solid #fff;
+  }
+}
+
+@media (min-width: 600px) {
+  .rfl-home-tile[c-hrRunForLoveHome_hrRunForLoveHome]
+    .slds-size_1-of-3:not(:last-child)[c-hrRunForLoveHome_hrRunForLoveHome] {
+    border-right: 1px solid #fff;
+  }
+}
+
+/* Days left and update target */
+
+.slds-grid.rfl-stats-2[c-hrRunForLoveHome_hrRunForLoveHome] {
+  margin-bottom: 40px;
+}
+
+.slds-grid.rfl-stats-2[c-hrRunForLoveHome_hrRunForLoveHome]
+  div:first-child[c-hrRunForLoveHome_hrRunForLoveHome] {
+  width: 33.33%;
+  text-transform: uppercase;
+  color: #44d1b5;
+  box-shadow: 1px 1px 8px 0 hsla(0, 0%, 39%, 0.2);
+}
+
+@media (min-width: 768px) {
+  .slds-grid.rfl-stats-2[c-hrRunForLoveHome_hrRunForLoveHome]
+    div:first-child[c-hrRunForLoveHome_hrRunForLoveHome] {
+    font-size: 1.125rem;
+  }
+}
+
+.slds-grid.rfl-stats-2[c-hrRunForLoveHome_hrRunForLoveHome]
+  div[c-hrRunForLoveHome_hrRunForLoveHome] {
+  border: 0;
+  border-radius: 0;
+}
+
+.slds-grid.rfl-stats-2[c-hrRunForLoveHome_hrRunForLoveHome]
+  > div:nth-child(2)[c-hrRunForLoveHome_hrRunForLoveHome] {
+  width: auto !important;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 0 0 0 auto;
+  padding: 0 !important;
+}
+
+@media (max-width: 599px) {
+  .rfl-stats-2[c-hrRunForLoveHome_hrRunForLoveHome] {
+    flex-wrap: wrap;
+  }
+
+  .slds-grid.rfl-stats-2[c-hrRunForLoveHome_hrRunForLoveHome]
+    > div:nth-child(2)[c-hrRunForLoveHome_hrRunForLoveHome] {
+    margin-top: 0.75rem;
+  }
+}
+
+/* Update target button */
+
+.homepage-button {
+  background: #ffe15d;
+  border-radius: 0;
+  border: 0;
+  color: #44006e;
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding: 2px 2px;
+  font-weight: 800;
+}
+
+/* .slds-grid.rfl-stats-2[c-hrRunForLoveHome_hrRunForLoveHome]
+  > div:nth-child(2)[c-hrRunForLoveHome_hrRunForLoveHome]
+  .slds-button[c-hrRunForLoveHome_hrRunForLoveHome] {
+  background: #ffe15d;
+  border-radius: 0;
+  border: 0;
+  color: #44006e;
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding: 2px 1rem;
+  font-weight: 800;
+} */
+
+.slds-grid.rfl-stats-2[c-hrRunForLoveHome_hrRunForLoveHome]
+  > div:nth-child(2)[c-hrRunForLoveHome_hrRunForLoveHome]
+  .slds-button[c-hrRunForLoveHome_hrRunForLoveHome]:after {
+  content: "target";
+  padding-left: 0.25em;
+  font-weight: 800;
+}
+
+.slds-grid.rfl-stats-2[c-hrRunForLoveHome_hrRunForLoveHome]
+  > div:nth-child(2)[c-hrRunForLoveHome_hrRunForLoveHome]
+  > div:first-child[c-hrRunForLoveHome_hrRunForLoveHome] {
+  width: 4rem;
+  margin-right: 0.5rem;
+  box-shadow: none;
+  border: none;
+}
+
+.slds-grid.rfl-stats-2[c-hrRunForLoveHome_hrRunForLoveHome]
+  > div:nth-child(2)[c-hrRunForLoveHome_hrRunForLoveHome]
+  input[c-hrRunForLoveHome_hrRunForLoveHome] {
+  border-radius: 0;
+  border: 1px solid #ffe15d;
+  width: 4rem;
+  font-size: 0.935rem;
+  padding: 1px 0.75rem;
+  color: #44006e;
+}
+
+.slds-grid.rfl-stats-2[c-hrRunForLoveHome_hrRunForLoveHome]
+  > div:nth-child(2)[c-hrRunForLoveHome_hrRunForLoveHome]
+  input:focus[c-hrRunForLoveHome_hrRunForLoveHome] {
+  border-color: #44006e;
+}
+
+.slds-grid.rfl-stats-2[c-hrRunForLoveHome_hrRunForLoveHome]
+  svg[c-hrRunForLoveHome_hrRunForLoveHome] {
+  display: none !important;
+}
+
+.slds-grid.rfl-stats-2[c-hrRunForLoveHome_hrRunForLoveHome]
+  div:nth-child(2)[c-hrRunForLoveHome_hrRunForLoveHome]
+  .slds-form-element__label[c-hrRunForLoveHome_hrRunForLoveHome] {
+  display: none;
+}
+
+/* Event progress info */
+
+.rfl-home-progress[c-hrRunForLoveHome_hrRunForLoveHome] {
+  background-color: #ffe15d;
+  color: #44006e;
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  font-weight: 800;
+  padding: 0.5rem 2rem;
+  font-family: PlatformMedium, Arial, sans-serif;
+  letter-spacing: 2px;
+  max-width: 768px;
+  margin: 0 auto 2rem auto;
+  line-height: 1;
+  text-align: center;
+  position: relative;
+}
+
+.rfl-home-celebration[c-hrRunForLoveHome_hrRunForLoveHome] {
+  background-color: #ff6cb5;
+  color: #44006e;
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  font-weight: 800;
+  padding: 0.5rem 2rem;
+  font-family: PlatformMedium, Arial, sans-serif;
+  letter-spacing: 2px;
+  max-width: 768px;
+  margin: 0 auto 2rem auto;
+  line-height: 1;
+  text-align: center;
+  position: relative;
+}
+
+.rfl-home-celebration:before,
+.rfl-home-celebration:after {
+  position: absolute;
+  content: url(celebration.svg);
+}
+
+.rfl-home-celebration:before {
+  left: 0.5rem;
+  top: 0.75rem;
+  transform: rotate(35deg);
+}
+
+.rfl-home-celebration:after {
+  right: 1rem;
+  top: 1.5rem;
+  transform: rotate(120deg);
+}
+
+@media (max-width: 767px) {
+  .rfl-home-celebration[c-hrRunForLoveHome_hrRunForLoveHome] {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .rfl-home-celebration:after {
+    right: -1.5rem;
+  }
+
+  .rfl-home-celebration:before {
+    left: -2rem;
+  }
+}
+
+.slds-grid.slds-wrap[c-hrAllMyRuns_hrAllMyRuns] {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .slds-medium-size_6-of-12.slds-large-size_8-of-12[c-hrAllMyRuns_hrAllMyRuns] {
+    width: 60% !important;
+  }
+
+  .slds-medium-size_6-of-12.slds-large-size_4-of-12[c-hrAllMyRuns_hrAllMyRuns] {
+    width: 40% !important;
+  }
+}
+
+.rfl-log-tile[c-hrAllMyRuns_hrAllMyRuns] {
+  font-size: 1rem;
+  box-shadow: 1px 1px 8px 0 hsla(0, 0%, 39%, 0.2);
+  font-family: Karla, Arial, sans-serif;
+  padding-bottom: 0.75rem;
+}
+
+@media (max-width: 767px) {
+  .rfl-log-tile[c-hrAllMyRuns_hrAllMyRuns] {
+    margin-bottom: 3rem;
+  }
+}
+
+.rfl-log-tile .slds-form-element .slds-form-element__label,
+.rfl-log-tile .slds-form-element .slds-required {
+  color: #44006e !important;
+  text-transform: uppercase;
+  font-size: 0.875rem !important;
+}
+
+.rfl-log-tile .slds-button.slds-button_destructive {
+  margin-top: 1rem;
+  margin-left: auto;
+  display: block;
+  position: relative;
+  top: 0.25rem;
+}
+
+.slds-button.slds-button_destructive {
+  background: #ffe15d !important;
+  border-radius: 0 !important;
+  border: 0 !important;
+  color: #44006e !important;
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding: 2px 1rem;
+  font-weight: 800;
+}
+
+.slds-button.slds-button_destructive svg {
+  display: none;
+}
+
+.rfl-log-tile[c-hrAllMyRuns_hrAllMyRuns] .slds-grid[c-hrAllMyRuns_hrAllMyRuns] {
+  margin: 1rem 1.25rem;
+}
+
+.rfl-log-tile[c-hrAllMyRuns_hrAllMyRuns]
+  .slds-grid_vertical[c-hrAllMyRuns_hrAllMyRuns]
+  > div:first-child[c-hrAllMyRuns_hrAllMyRuns] {
+  display: none;
+}
+
+.rfl-log-header[c-hrAllMyRuns_hrAllMyRuns] {
+  padding: 0.5rem 1rem;
+  color: #fff;
+  font-size: 1.125rem;
+  background-color: #44d1b5;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.rfl-log-header[c-hrAllMyRuns_hrAllMyRuns]:after {
+  content: "Log an activity";
+}
+
+.rfl-log-header[c-hrAllMyRuns_hrAllMyRuns]:before {
+  content: "+";
+  padding-right: 4px;
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 0.8;
+  position: relative;
+  top: -1px;
+}
+
+.rfl-log-header[c-hrAllMyRuns_hrAllMyRuns] b[c-hrAllMyRuns_hrAllMyRuns] {
+  display: none;
+}
+
+.rfl-run-tile[c-hrAllMyRuns_hrAllMyRuns] {
+  margin-left: 30px;
+  background: rgba(68, 209, 182, 0.1);
+  padding: 0.75rem 1.25rem 0.25rem;
+  color: #4bc6b9 !important;
+}
+
+@media (max-width: 767px) {
+  .rfl-run-tile[c-hrAllMyRuns_hrAllMyRuns] {
+    margin-left: -1.5rem;
+    width: calc(100% + 3rem);
+  }
+
+  .slds-grid_vertical[c-hrAllMyRuns_hrAllMyRuns]
+    > div:first-child[c-hrAllMyRuns_hrAllMyRuns]
+    .rfl-run-tile[c-hrAllMyRuns_hrAllMyRuns] {
+    padding-top: 1.5rem;
+  }
+}
+
+.slds-grid_vertical[c-hrAllMyRuns_hrAllMyRuns]
+  > div:first-child[c-hrAllMyRuns_hrAllMyRuns]
+  .rfl-run-tile[c-hrAllMyRuns_hrAllMyRuns]:before {
+  content: "My activities";
+  font-family: PlatformMedium, Arial, sans-serif;
+  letter-spacing: 2px;
+  color: #44006e;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  line-height: 1.75;
+  font-weight: 800;
+}
+
+.slds-grid_vertical[c-hrAllMyRuns_hrAllMyRuns]
+  > div:last-child[c-hrAllMyRuns_hrAllMyRuns]
+  .rfl-run-tile[c-hrAllMyRuns_hrAllMyRuns] {
+  padding-bottom: 1.5rem;
+}
+
+@media (max-width: 767px) {
+  .slds-grid_vertical[c-hrAllMyRuns_hrAllMyRuns]
+    > div:last-child[c-hrAllMyRuns_hrAllMyRuns]
+    .rfl-run-tile[c-hrAllMyRuns_hrAllMyRuns] {
+    padding-bottom: 2.5rem;
+  }
+}
+
+.rfl-run-header[c-hrAllMyRuns_hrAllMyRuns] {
+  padding: 0.5rem 1rem;
+  color: #fff;
+  background-color: #44d1b5;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-family: Karla, Arial, sans-serif;
+}
+
+.rfl-run-header[c-hrAllMyRuns_hrAllMyRuns]
+  + .slds-grid_vertical[c-hrAllMyRuns_hrAllMyRuns] {
+  background: #fff;
+  box-shadow: 1px 1px 8px 0 hsla(0, 0%, 39%, 0.2);
+  color: #44006e;
+  font-family: Karla, Arial, sans-serif;
+  font-size: 1rem;
+}
+
+.rfl-run-header[c-hrAllMyRuns_hrAllMyRuns]
+  + .slds-grid_vertical[c-hrAllMyRuns_hrAllMyRuns]
+  .slds-box:first-child[c-hrAllMyRuns_hrAllMyRuns] {
+  border-width: 0 !important;
+  border-bottom: 1px solid #44006e !important;
+  border-radius: 0;
+  font-size: 1.125rem;
+  font-weight: 800;
+  justify-content: space-between;
+}
+
+.rfl-run-header[c-hrAllMyRuns_hrAllMyRuns]
+  + .slds-grid_vertical[c-hrAllMyRuns_hrAllMyRuns]
+  .slds-box:first-child[c-hrAllMyRuns_hrAllMyRuns]
+  .slds-col:last-child[c-hrAllMyRuns_hrAllMyRuns] {
+  text-align: right;
+}
+
+.rfl-run-header[c-hrAllMyRuns_hrAllMyRuns]
+  + .slds-grid_vertical[c-hrAllMyRuns_hrAllMyRuns]
+  .slds-box:nth-child(2)[c-hrAllMyRuns_hrAllMyRuns] {
+  border-width: 0 !important;
+  line-height: 1.35;
+}
