@@ -141,8 +141,10 @@ export default class HrRunForLoveHome extends LightningElement {
             this.isDisabled = this.gettingReady || this.isFinished;
             //alert('handleNewRunEvent: isDisabled = ' + this.isDisabled);
 
-            // The celebration!!!
+            // The celebration!!!  Switch off when the 40 days are up.
             this.hasReachedTarget = this.theCurrentMiles >= this.theTargetMiles ? true : false;
+            this.hasReachedTarget = this.hasReachedTarget && !this.isFinished;
+
             //alert('handleNewRunEvent: hasReachedTarget = ' + this.hasReachedTarget);
         }
     }
