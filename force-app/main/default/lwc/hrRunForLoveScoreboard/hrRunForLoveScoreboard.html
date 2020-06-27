@@ -9,8 +9,8 @@
                             <p class="slds-p-horizontal_small">{theCollectiveTargetMiles}</p>
                         </div>
                         <div class="slds-col">
-                            <b class="slds-p-horizontal_small">Miles Pledged: </b>
-                            <p class="slds-p-horizontal_small">{theTotalMilesPledged}
+                            <b class="slds-p-horizontal_small">Laps Of The World: </b>
+                            <p class="slds-p-horizontal_small">{theLapsOfTheWorld}
                             </p>
                         </div>
                         <div class="slds-col">
@@ -40,18 +40,36 @@
         </template>
     </div>
 
-    <!-- Progress bar -->
+    <!-- Miles progress bar - removed when target miles reached -->
+    <template if:false={isTargetReached}>
+        <div class='wrapper'>
+            <label>
+                <span class='progress-label'>0%</span> of our journey around the world completed
+            </label>
+            <div class="progress-bar-wrapper">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Fundraising progress bar -->
     <div class='wrapper'>
         <label>
-            <span class='progress-label'>0%</span> of our journey completed
+            <span class="funds-summary-label">Fundraising Target: £{theFundraisingTarget}</span>
         </label>
-        <div class="progress-bar-wrapper">
-            <div class="progress-bar"></div>
+        <label>
+            <span class='funds-progress-label'>0%</span> of our goal achieved
+        </label>
+        <div class="funds-progress-bar-wrapper">
+            <div class="funds-progress-bar"></div>
         </div>
+        <label>
+            <span>Total so far: £{theFundraisingTotal}</span>
+        </label>
     </div>
 
     <!-- Fundraising total -->
-    <lightning-tile>
+    <!--     <lightning-tile>
         <div class="rfl-fund-tile">
             <div class="slds-grid">
                 <div class="slds-col">
@@ -68,7 +86,7 @@
                 </div>
             </div>
         </div>
-    </lightning-tile>
+    </lightning-tile> -->
 
     <!-- List of runners -->
     <template if:true={theHomePages}>

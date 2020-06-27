@@ -520,6 +520,12 @@ Progress bar
   font-size: 1rem;
 }
 
+/* 
+
+Miles Progress bar 
+
+*/
+
 .progress-label[c-hrRunForLoveScoreboard_hrRunForLoveScoreboard] {
   font-size: 28px;
   padding-right: 0.25rem;
@@ -560,4 +566,61 @@ Progress bar
   padding-top: 0px;
   right: 5px;
   content: url("https://s3.amazonaws.com/ak-helprefugees/images/editor-2020-05-12.png");
+}
+
+/* 
+
+Fundraising Progress bar 
+
+*/
+
+.funds-summary-label {
+  color: #44006e;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: PlatformMedium, Arial, sans-serif;
+  letter-spacing: 2px;
+}
+
+.funds-progress-label[c-hrRunForLoveScoreboard_hrRunForLoveScoreboard] {
+  font-size: 28px;
+  padding-right: 0.25rem;
+  margin-top: -0.5rem;
+  font-weight: 800;
+}
+
+.funds-progress-bar-wrapper[c-hrRunForLoveScoreboard_hrRunForLoveScoreboard] {
+  background-color: #f1f1f1 !important;
+  border-radius: 12px;
+  height: 60px;
+  border: 2px solid #44006e;
+  width: 100%;
+}
+
+.funds-progress-bar-wrapper[c-hrRunForLoveScoreboard_hrRunForLoveScoreboard]
+  > .funds-progress-bar[c-hrRunForLoveScoreboard_hrRunForLoveScoreboard] {
+  height: 100%;
+  width: 50%;
+  padding: 0 12px;
+  border-radius: 12px;
+  background-color: #000;
+  box-sizing: border-box;
+  border: 0 solid #44d1b5;
+  background-color: #44d1b5;
+  position: relative;
+  transition: width 1s linear;
+}
+
+.funds-progress-bar-wrapper[c-hrRunForLoveScoreboard_hrRunForLoveScoreboard]
+  > .funds-progress-bar[c-hrRunForLoveScoreboard_hrRunForLoveScoreboard]:before {
+  position: absolute;
+}
+
+.funds-progress-bar-wrapper[c-hrRunForLoveScoreboard_hrRunForLoveScoreboard]
+  > .funds-progress-bar[c-hrRunForLoveScoreboard_hrRunForLoveScoreboard]:after {
+  position: absolute;
+  padding-top: 0px;
+  right: 5px;
+  content: url("https://s3.amazonaws.com/ak-helprefugees/images/editor-2020-06-05-4.png");
 }

@@ -33,6 +33,7 @@ export default class HrRunForLoveScoreboard extends LightningElement {
     theFundraisingTotal;
     theFundraisingTarget;
     theFundraisingAmountToGo;
+    theLapsOfTheWorld;
 
     // HomePages
     theHomePages;
@@ -52,6 +53,9 @@ export default class HrRunForLoveScoreboard extends LightningElement {
 
     // Is there a fundraising page?
     isFundraisingPage;
+
+    // Has the target mileage been reached?
+    isTargetReached;
 
     @wire(getCampaignIdForName, { campaignName: '$campaignname' })
     wiredRecord({ error, data }) {
@@ -81,10 +85,19 @@ export default class HrRunForLoveScoreboard extends LightningElement {
                 this.theFundraisingTotal = result.T4R_Fundraising_total__c;
                 this.theFundraisingTarget = result.T4R_Fundraising_target__c;
                 this.theFundraisingAmountToGo = result.T4R_Fundraising_amount_to_go__c;
+                this.theLapsOfTheWorld = (this.theTotalMilesCompleted / 24901).toFixed(2);
 
-                // Load the totaliser
-                var percentage = (this.theTotalMilesCompleted / this.theCollectiveTargetMiles) * 100;
-                this.loadTotaliser(percentage);
+                this.isTargetReached = this.theMilesToReachTarget <= 0;
+
+                if (this.theMilesToReachTarget > 0) {
+                    // Load the miles totaliser
+                    var milesPercentage = (this.theTotalMilesCompleted / this.theCollectiveTargetMiles) * 100;
+                    this.loadMilesTotaliser(milesPercentage);
+                }
+
+                // Load the fundraising totaliser
+                var fundsPercentage = (this.theFundraisingTotal / this.theFundraisingTarget) * 100;
+                this.loadFundraisingTotaliser(fundsPercentage);
 
             }).then(
                 GetLimitedHomePages({ start: this.theHomePageOffset, count: this.theHomePageCount }).then(result => {
@@ -94,10 +107,10 @@ export default class HrRunForLoveScoreboard extends LightningElement {
     }
 
     //
-    // Totaliser
+    // Miles Totaliser
     //
 
-    loadTotaliser(percent) {
+    loadMilesTotaliser(percent) {
         //alert('loadTotaliser - percent' + percent)
 
         // clean percent: if higher than 100%, set 100%; if lower than 0%, set 0%
@@ -107,6 +120,28 @@ export default class HrRunForLoveScoreboard extends LightningElement {
 
         const progressLabel = this.template.querySelector('.progress-label');
         const progressBar = this.template.querySelector('.progress-bar');
+
+        // set label
+        progressLabel.innerHTML = widthPercent + '%';
+
+        // set width
+        progressBar.style.width = widthPercent + '%';
+    }
+
+    //
+    // Fundraising Totaliser
+    //
+
+    loadFundraisingTotaliser(percent) {
+        //alert('loadFundraisingTotaliser - percent' + percent)
+
+        // clean percent: if higher than 100%, set 100%; if lower than 0%, set 0%
+        var widthPercent = percent > 100 ? 100 : percent;
+        widthPercent = widthPercent < 0 ? 0 : widthPercent;
+        widthPercent = Math.round(widthPercent);
+
+        const progressLabel = this.template.querySelector('.funds-progress-label');
+        const progressBar = this.template.querySelector('.funds-progress-bar');
 
         // set label
         progressLabel.innerHTML = widthPercent + '%';

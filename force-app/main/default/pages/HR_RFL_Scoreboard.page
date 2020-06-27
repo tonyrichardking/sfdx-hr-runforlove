@@ -726,8 +726,7 @@
             </p>
             <p>
                 To take part, simply pledge your miles, set up a fundraiser, and keep track of your progress, all to
-                <span
-                    class="rfl-text-larger">raise vital funds for refugees</span>.
+                <span class="rfl-text-larger">raise vital funds for refugees</span>.
             </p>
         </div>
 
@@ -761,53 +760,55 @@
             <div class="people">
                 <div class="person">
                     <div class="person-img">
-                        <img src="{!$Resource.person1}" />
+                        <img src="{!$Resource.person1b}" />
                     </div>
                     <div class="person-description">
-                        <h3>Hina</h3>
+                        <h3>Dema</h3>
                         <p>
-                            <span class="q rfl-text-bolder">How: </span>Zumba classes</p>
+                            <span class="q rfl-text-bolder">How: </span>I’m walking 1 mile</p>
                         <p>
-                            <span class="q rfl-text-bolder">Where: </span>My garden</p>
+                            <span class="q rfl-text-bolder">Where: </span>Around where I live</p>
                         <p>
-                            <span class="q rfl-text-bolder">Why: </span>Since lockdown, I’ve moved my weekly Zumba classes to my garden. I’m using them now
-                            to raise money for Choose Love, whose partners are doing their best to help people in camps access
-                            clean water and to keep themselves as safe as possible at this time. Working in the NHS, I know
-                            how important hygiene and sanitation is to stop the spread of coronavirus.</p>
+                            <span class="q rfl-text-bolder">Why: </span>I am a refugee from Syria. I lost my leg in 2012 because of the war; a bomb fell
+                            on my home. I've been living in the UK since 2017. I am going to walk a mile for refugees because
+                            I want to help other people and make them feel happy. I know how hard it is to be a refugee as
+                            I have had that experience myself.</p>
                     </div>
                 </div>
                 <div class="person">
                     <div class="person-img">
-                        <img src="{!$Resource.person2}" />
+                        <img src="{!$Resource.person2b}" />
                     </div>
                     <div class="person-description">
-                        <h3>Alex</h3>
+                        <h3>Angie</h3>
                         <p>
-                            <span class="q rfl-text-bolder">How: </span>I'll be cycling 15 miles each day. This will amount to 600 miles in the 40 days!</p>
+                            <span class="q rfl-text-bolder">How: </span>I’m cycling 600 miles in 40 days</p>
                         <p>
-                            <span class="q rfl-text-bolder">Where: </span>I'm working full-time as a doctor at the moment, so I'll take a longer cycling
-                            route there and back each day.</p>
+                            <span class="q rfl-text-bolder">Where: </span>Around London</p>
                         <p>
-                            <span class="q rfl-text-bolder">Why: </span>Covid-19 can affect everyone, but some are more at risk than others. So many refugees
-                            have less ability to self-isolate, don't have access to nutritious food, or sufficient healthcare.
-                            It's important to do what we can for people regardless of borders.</p>
+                            <span class="q rfl-text-bolder">Why: </span>I have a safe place to live, with food, running water, and endless soap to wash hands,
+                            but there are many people living in refugee camps, with no possibility of social distancing,
+                            limited water, no soap or sanitizer, crowded into tents, their lives destroyed through no fault
+                            of their other own. This is why for my 73rd birthday I have pledged to ride 15 miles a day for
+                            40 days, to raise funds for Choose Love.
+                        </p>
                     </div>
                 </div>
                 <div class="person">
                     <div class="person-img">
-                        <img src="{!$Resource.person3}" />
+                        <img src="{!$Resource.person3b}" />
                     </div>
                     <div class="person-description">
-                        <h3>Leslie and Jouja</h3>
+                        <h3>Misbah</h3>
                         <p>
-                            <span class="q rfl-text-bolder">How: </span>Freestyle dance sessions</p>
+                            <span class="q rfl-text-bolder">How: </span>Lunging, squatting, dancing and running 150 miles</p>
                         <p>
-                            <span class="q rfl-text-bolder">Where: </span>At home</p>
+                            <span class="q rfl-text-bolder">Where: </span>In my home and around</p>
                         <p>
-                            <span class="q rfl-text-bolder">Why: </span>The importance of physical exercise for mental health is especially significant in
-                            a time like this. Knowing that other people are taking part in this challenge is a good reminder
-                            of solidarity in a time of crisis. We're doing it to support Choose Love’s amazing work, helping
-                            those in need both in the UK and around the world.</p>
+                            <span class="q rfl-text-bolder">Why: </span>I've been a supporter and admirer of Help Refugees ever since its inception and now
+                            during this pandemic, people need help and money more than ever. Social distancing and frequent
+                            hand washing is a luxury that cannot be afforded by displaced people across Europe, the Middle
+                            East and on the US-Mexico border.</p>
                     </div>
                 </div>
             </div>
