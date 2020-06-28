@@ -64,6 +64,7 @@ export default class HrRunForLoveHome extends LightningElement {
     theRelatedContact;
     theRelatedContactName;
     theRelatedContactFirstname;
+    theEmail;
 
     @track newTargetMiles
 
@@ -108,44 +109,44 @@ export default class HrRunForLoveHome extends LightningElement {
                 this.theRelatedContact = result;
                 this.theRelatedContactName = result.Name;
                 this.theRelatedContactFirstname = this.theRelatedContactName.split(" ")[0];
+                this.theEmail = result.Email;
+
+                //
+                // Compute all the boolean variables to switch the progess messages
+                //
+
+                // TODO:- Get the starting date from the scoreboard why doesn't this work?
+
+                //alert('GetScoreboardForId: theScoreboardId = ' + this.theScoreboardId);
+                /*             GetScoreboardForId({ scoreboardId: this.theScoreboardId }).then(result => {
+                                this.theScoreboardRecord = result;
+                                this.theStartDate = result.T4R_Campaign_start_date__c;
+                            }); */
+                //alert('GetScoreboardForId: theStartDate = ' + this.theStartDate + 'Scoreboard = ' + this.theScoreboardRecord);
+
+                this.theStartDate = '23rd May';
+
+                // We are getting ready
+                this.gettingReady = this.theDaysToStart > 0;
+                //alert('handleNewRunEvent: gettingReady = ' + this.gettingReady + '; theDaysToStart = ' + this.theDaysToStart);
+
+                // The starting pistol has fired!
+                this.startsToday = this.theDaysToStart == 0;
+                //alert('handleNewRunEvent: startsToday = ' + this.startsToday + '; theDaysToStart = ' + this.theDaysToStart);
+
+                // The 40 days are up.  Keep Angie's page active.
+                this.isFinished = this.theDaysLeft <= 0 && this.theEmail != 'angie@angiegooderhamstore.com';
+                //alert('handleNewRunEvent: isFinished = ' + this.isFinished + '; theDaysLeft = ' + this.theDaysLeft + '; theEmail = ' + this.theEmail);
+
+                // Disable logging before and after event
+                this.isDisabled = this.gettingReady || this.isFinished;
+                //alert('handleNewRunEvent: isDisabled = ' + this.isDisabled);
+
+                // The celebration!!!  Switch off when the 40 days are up.
+                this.hasReachedTarget = this.theCurrentMiles >= this.theTargetMiles ? true : false;
+                this.hasReachedTarget = this.hasReachedTarget && !this.isFinished;
+                //alert('handleNewRunEvent: hasReachedTarget = ' + this.hasReachedTarget);
             });
-
-            //
-            // Compute all the boolean variables to switch the progess messages
-            //
-
-            // TODO:- Get the starting date from the scoreboard why doesn't this work?
-
-            //alert('GetScoreboardForId: theScoreboardId = ' + this.theScoreboardId);
-            /*             GetScoreboardForId({ scoreboardId: this.theScoreboardId }).then(result => {
-                            this.theScoreboardRecord = result;
-                            this.theStartDate = result.T4R_Campaign_start_date__c;
-                        }); */
-            //alert('GetScoreboardForId: theStartDate = ' + this.theStartDate + 'Scoreboard = ' + this.theScoreboardRecord);
-
-            this.theStartDate = '23rd May';
-
-            // We are getting ready
-            this.gettingReady = this.theDaysToStart > 0;
-            //alert('handleNewRunEvent: gettingReady = ' + this.gettingReady + '; theDaysToStart = ' + this.theDaysToStart);
-
-            // The starting pistol has fired!
-            this.startsToday = this.theDaysToStart == 0;
-            //alert('handleNewRunEvent: startsToday = ' + this.startsToday + '; theDaysToStart = ' + this.theDaysToStart);
-
-            // The 40 days are up
-            this.isFinished = this.theDaysLeft <= 0;
-            //alert('handleNewRunEvent: isFinished = ' + this.isFinished + '; theDaysLeft = ' + this.theDaysLeft);
-
-            // Disable logging before and after event
-            this.isDisabled = this.gettingReady || this.isFinished;
-            //alert('handleNewRunEvent: isDisabled = ' + this.isDisabled);
-
-            // The celebration!!!  Switch off when the 40 days are up.
-            this.hasReachedTarget = this.theCurrentMiles >= this.theTargetMiles ? true : false;
-            this.hasReachedTarget = this.hasReachedTarget && !this.isFinished;
-
-            //alert('handleNewRunEvent: hasReachedTarget = ' + this.hasReachedTarget);
         }
     }
 

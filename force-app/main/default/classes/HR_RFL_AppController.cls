@@ -18,7 +18,7 @@ public with sharing class HR_RFL_AppController
         //system.debug('getContactForId: contactId = ' + contactId);
     
         return [
-            SELECT Id, Name
+            SELECT Id, Name, Email
             FROM Contact
             WHERE Id =: contactId
             //WITH SECURITY_ENFORCED

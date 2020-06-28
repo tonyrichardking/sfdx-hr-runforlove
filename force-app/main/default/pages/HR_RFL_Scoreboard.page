@@ -671,7 +671,7 @@
             <div class="rfl-banner-image"></div>
             <div class="rfl-h1-strip">
                 <h1>
-                    <span>Join a people powered journey </span>
+                    <span>Our people powered journey </span>
                     <span class="outline">around the world</span>
                 </h1>
             </div>
@@ -683,25 +683,27 @@
                 </div>
                 <div class="rfl-h1-mobile">
                     <h1>
-                        <span>Join a people powered journey </span>
+                        <span>Our people powered journey </span>
                         <span class="outline">around the world</span>
                     </h1>
                 </div>
                 <div class="rfl-ticket-text">
                     <p>
-                        We're attempting something huge. While staying safe and isolated in our parks, gardens and living rooms, we're coming together
-                        to travel the world - all to raise vital funds for refugees facing COVID-19 in dire conditions.
+                        We've done something huge. While staying safe and isolated in our parks, gardens and living rooms, we've come together to
+                        travel the world - all to raise vital funds for refugees facing COVID-19 in dire conditions.
                         <br />
                         <span class="rfl-text-bolder">Help Refugees with Thighs of Steel</span>
                     </p>
                 </div>
+                <!--                 
                 <a class="pledge-link" href="https://help-refugees.secure.force.com/aroundtheworldsignup">
                     <span>Pledge your miles now</span>
                     <svg viewBox="0 0 43 27">
                         <path d="M4.81804 0.5L0.123535 5.1945L21.3052 26.3762L42.4868 5.1945L37.7923 0.5L21.3052 16.9872L4.81804 0.5Z">
                         </path>
                     </svg>
-                </a>
+                </a> 
+            -->
             </div>
             <div class="pink-strip-mobile"></div>
         </div>
@@ -717,20 +719,12 @@
         <!-- Explanation -->
         <div class="rfl-explanation-strip">
             <p>
-                Whether walking, biking, running, rolling or doing any other exercise (twenty mins workout = a mile!), between us we want
-                to rack up
-                <span class="rfl-text-larger">24,901 miles</span> in 40 days between 23 May and 1 July.
-            </p>
-            <p>
-                It's audacious, but we believe we can go the distance.
-            </p>
-            <p>
-                To take part, simply pledge your miles, set up a fundraiser, and keep track of your progress, all to
-                <span class="rfl-text-larger">raise vital funds for refugees</span>.
+                <span class="rfl-text-larger">We've walked, cycled run, and rolled two entire laps of the world in 40 days between 23 May and 1 July.</span>
             </p>
         </div>
 
         <!-- Main links -->
+        <!--         
         <nav class="main-links rfl-no-underline-link">
             <div class="link">
                 <a href="https://help-refugees.secure.force.com/aroundtheworldsignup">
@@ -740,7 +734,8 @@
                     </svg>
                 </a>
             </div>
-        </nav>
+        </nav> 
+        -->
 
         <!-- LWC Container -->
         <div class="FlowContainer slds-card__body">
