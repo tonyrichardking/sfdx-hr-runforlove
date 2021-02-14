@@ -2,29 +2,32 @@
     <div class="rfl-block">
         <template if:true={theScoreboard}>
             <lightning-tile>
-                <div class="rfl-stats-tile">
-                    <div class="slds-grid">
-                        <div class="slds-col">
-                            <b class="slds-p-horizontal_small">Laps Of The World: </b>
-                            <p class="slds-p-horizontal_small">{theLapsOfTheWorld}
-                            </p>
+                <!-- <div class="rfl-stats-tile"> -->
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="rfl-stats-title">
+                        <div class="slds-grid rfl-stats-box">
+                            <div class="slds-col">
+                                <b class="slds-p-horizontal_small">Laps Of The World:</b>
+                                <p class="slds-p-horizontal_small">{theLapsOfTheWorld}</p>
+                            </div>
+                            <div class="slds-col">
+                                <b class="slds-p-horizontal_small">Miles Completed:</b>
+                                <p class="slds-p-horizontal_small">{theTotalMilesCompleted}</p>
+                            </div>
                         </div>
-                        <div class="slds-col">
-                            <b class="slds-p-horizontal_small">Miles Completed: </b>
-                            <p class="slds-p-horizontal_small">{theTotalMilesCompleted}</p>
-                        </div>
-                    </div>
-                    <div class="slds-grid">
-                        <div class="slds-col">
-                            <b class="slds-p-horizontal_small">Total Participants: </b>
-                            <p class="slds-p-horizontal_small">{theTotalRunners}</p>
-                        </div>
-                        <div class="slds-col">
-                            <b class="slds-p-horizontal_small">Total Activities Completed: </b>
-                            <p class="slds-p-horizontal_small">{theTotalRunsCompleted}</p>
+                        <div class="slds-grid rfl-stats-box">
+                            <div class="slds-col">
+                                <b class="slds-p-horizontal_small">Total number Of Participants:</b>
+                                <p class="slds-p-horizontal_small">{theTotalRunners}</p>
+                            </div>
+                            <div class="slds-col">
+                                <b class="slds-p-horizontal_small">Total Activities:</b>
+                                <p class="slds-p-horizontal_small">{theTotalRunsCompleted}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!-- </div> -->
             </lightning-tile>
         </template>
     </div>

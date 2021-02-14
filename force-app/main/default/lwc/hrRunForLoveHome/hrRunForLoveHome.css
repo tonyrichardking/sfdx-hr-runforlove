@@ -481,11 +481,11 @@
 .rfl-more-info{
   max-width: 816px;
   margin: 0 auto;
-  padding: 1rem 1.5rem 0 1.5rem;
+  padding: 1rem 1.5rem 2rem 1.5rem;
   line-height: 1.25;
   box-sizing: border-box;
   font-family: "Karla", Arial, sans-serif;
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: #44006E;
   text-align: center;
 }

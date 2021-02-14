@@ -356,13 +356,13 @@ original
   display: none;
 } */
 
-.rfl-stats-tile  .slds-grid {
+.rfl-stats-tile .slds-grid {
   box-shadow: 1px 1px 8px 0 rgba(100, 100, 100, 0.2);
   margin: 4px 0 10px 0;
   background-color: #44d1b5;
 }
 
-.rfl-stats-tile  .slds-grid  .slds-col {
+.rfl-stats-tile .slds-grid .slds-col {
   color: #fff;
   padding: 0.5rem 0;
   text-transform: uppercase;
@@ -375,7 +375,7 @@ original
 }
 
 @media (max-width: 767px) {
-  .rfl-stats-tile  .slds-grid  .slds-col {
+  .rfl-stats-tile .slds-grid .slds-col {
     font-size: 1rem;
   }
 }
@@ -411,6 +411,45 @@ original
   .rfl-stats-tile > .slds-grid > .slds-col:not(:nth-child(5)) {
     border-bottom: 1px #fff solid;
   }
+}
+
+/* 
+
+End of campaign stats boxes
+
+*/
+
+.rfl-stats-title:before {
+  content: "The journey";
+  color: #44006e;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: PlatformMedium, Arial, sans-serif;
+  letter-spacing: 2px;
+  display: block;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rfl-stats-box {
+  color: #fff;
+  padding: 0.5rem 0;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  line-height: 1.2;
+  align-items: flex-end;
+  box-shadow: 1px 1px 8px 0 rgba(100, 100, 100, 0.2);
+  margin: 4px 0 10px 0;
+  background-color: #44d1b5;
+  max-width: 768px;
+  margin: 0 auto 3rem auto;
+  font-size: 1rem;
+  font-family: "Karla", Arial, sans-serif;
+  border: 0;
 }
 
 /* Fundraising */
@@ -492,7 +531,6 @@ original
     border-bottom: 1px #fff solid;
   }
 }
-
 
 /* 
 

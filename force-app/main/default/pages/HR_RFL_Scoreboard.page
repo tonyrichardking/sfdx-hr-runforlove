@@ -671,8 +671,8 @@
             <div class="rfl-banner-image"></div>
             <div class="rfl-h1-strip">
                 <h1>
-                    <span>Our people powered journey </span>
-                    <span class="outline">around the world</span>
+                    <span>a people powered journey</span>
+                    <span class="outline"> around the world</span>
                 </h1>
             </div>
             <div class="rfl-ticket">
@@ -683,14 +683,14 @@
                 </div>
                 <div class="rfl-h1-mobile">
                     <h1>
-                        <span>Our people powered journey </span>
-                        <span class="outline">around the world</span>
+                        <span>A people powered journey</span>
+                        <span class="outline"> around the world</span>
                     </h1>
                 </div>
                 <div class="rfl-ticket-text">
                     <p>
-                        We've done something huge. While staying safe and isolated in our parks, gardens and living rooms, we've come together to
-                        travel the world - all to raise vital funds for refugees facing COVID-19 in dire conditions.
+                        We did it! This community went round the world twice in 40 days (wow!) and raised an incredible £100,000 for refugees. Thank
+                        you so much to everyone who got involved!
                         <br />
                         <span class="rfl-text-bolder">Help Refugees with Thighs of Steel</span>
                     </p>
@@ -719,23 +719,24 @@
         <!-- Explanation -->
         <div class="rfl-explanation-strip">
             <p>
-                <span class="rfl-text-larger">We've walked, cycled run, and rolled two entire laps of the world in 40 days between 23 May and 1 July.</span>
+                <span class="rfl-text-larger">Our 40 days are up! Through walking, biking, running, rolling and so many other brilliant activities - together
+                    we made it around the world not once but twice, and raised £100,000 to support refugees. Incredible!
+                    To stay in touch about future challenges and the impact your support makes, sign up to our newsletter.
+                    Thank you so much!</span>
             </p>
         </div>
 
         <!-- Main links -->
-        <!--         
         <nav class="main-links rfl-no-underline-link">
             <div class="link">
-                <a href="https://help-refugees.secure.force.com/aroundtheworldsignup">
-                    Get started
+                <a href="https://go.helprefugees.org/signup/mailing-list/">
+                    NOW SIGN UP TO THE NEWSLETTER
                     <svg height="16" viewBox="0 0 43 27" width="30">
                         <path d="M4.81804 0.5L0.123535 5.1945L21.3052 26.3762L42.4868 5.1945L37.7923 0.5L21.3052 16.9872L4.81804 0.5Z" fill="#44006e"></path>
                     </svg>
                 </a>
             </div>
-        </nav> 
-        -->
+        </nav>
 
         <!-- LWC Container -->
         <div class="FlowContainer slds-card__body">

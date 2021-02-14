@@ -105,6 +105,8 @@ export default class HrRunForLoveHome extends LightningElement {
             this.theDaysToStart = getFieldValue(data, DAYSTOSTART_FIELD);
             this.theScoreboardId = getFieldValue(data, SCOREBOARD_FIELD);
 
+            this.theDaysLeft = this.theDaysLeft > 0 ? this.theDaysLeft : 0;
+
             GetContactForHomePageId({ homePageId: this.homePageId }).then(result => {
                 this.theRelatedContact = result;
                 this.theRelatedContactName = result.Name;
