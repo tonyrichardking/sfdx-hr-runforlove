@@ -1,4 +1,10 @@
-public with sharing class HR_RFL_AppController 
+//
+// Log
+//
+// 18/1/2011 in GetHomePageForId set cacheable=true
+// 
+
+public without sharing class HR_RFL_AppController 
 {
     public string conid {get;set;}
 
@@ -259,7 +265,7 @@ public with sharing class HR_RFL_AppController
     //
 
     // --------------------------------------------------------------------------------
-    @AuraEnabled(cacheable=false)
+    @AuraEnabled(cacheable=true)
     public static T4R_Run_For_Love_Home__c GetHomePageForId(string recordId) 
     {
         //system.debug('GetHomePageForId: recordId = ' + recordId);

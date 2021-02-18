@@ -8,34 +8,13 @@ import { LightningElement, track, api, wire } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { refreshApex } from '@salesforce/apex';
 import { getRecord, getFieldValue } from 'lightning/uiRecordApi'
+import { reduceErrors } from 'c/ldsUtils';
 
 // from HR_RFL_AppController
 import GetContactForHomePageId from '@salesforce/apex/HR_RFL_AppController.GetContactForHomePageId';
 import UpdateHomePage from '@salesforce/apex/HR_RFL_AppController.UpdateHomePage';
 import UpdateHomePageLatestRunDistance from '@salesforce/apex/HR_RFL_AppController.UpdateHomePageLatestRunDistance';
 import GetHomePageForId from '@salesforce/apex/HR_RFL_AppController.GetHomePageForId';
-
-import TARGETMILES_FIELD from '@salesforce/schema/T4R_Run_For_Love_Home__c.T4R_Target_miles__c';
-import RUNSCOMPLETED_FIELD from '@salesforce/schema/T4R_Run_For_Love_Home__c.T4R_Runs_completed__c';
-import MILESTOGO_FIELD from '@salesforce/schema/T4R_Run_For_Love_Home__c.T4R_Miles_to_go__c';
-import DESCRIPTION_FIELD from '@salesforce/schema/T4R_Run_For_Love_Home__c.T4R_Description__c';
-import DAYSLEFT_FIELD from '@salesforce/schema/T4R_Run_For_Love_Home__c.T4R_Days_left__c';
-import CURRENTMILES_FIELD from '@salesforce/schema/T4R_Run_For_Love_Home__c.T4R_Current_miles__c';
-import FUNDRAISINGPAGE_FIELD from '@salesforce/schema/T4R_Run_For_Love_Home__c.T4R_Fundraising_page__c';
-import DAYSTOSTART_FIELD from '@salesforce/schema/T4R_Run_For_Love_Home__c.T4R_Days_to_start__c';
-import SCOREBOARD_FIELD from '@salesforce/schema/T4R_Run_For_Love_Home__c.T4R_Run_For_Love_Scoreboard__c';
-
-const fields = [
-    TARGETMILES_FIELD,
-    RUNSCOMPLETED_FIELD,
-    MILESTOGO_FIELD,
-    DESCRIPTION_FIELD,
-    DAYSLEFT_FIELD,
-    CURRENTMILES_FIELD,
-    FUNDRAISINGPAGE_FIELD,
-    DAYSTOSTART_FIELD,
-    SCOREBOARD_FIELD,
-];
 
 export default class HrRunForLoveHome extends LightningElement {
 
@@ -74,14 +53,19 @@ export default class HrRunForLoveHome extends LightningElement {
     hasReachedTarget;
     isDisabled;
 
+    //Debug
+    errorMessage;
+
     wiredResult;
 
-    // Reactive variables are prefixed with $.  If a reactive variable changes, the wire service provisions new data,
-    @wire(getRecord, { recordId: '$homePageId', fields })
+    // Reactive variables are prefixed with $.  If a reactive variable changes, the wire service provisions new data
+    //@wire(getRecord, { recordId: '$homePageId', fields })
+    @wire(GetHomePageForId, { recordId: '$homePageId' })
     wiredRecord({ error, data }) {
         this.wiredResult = data;
         if (error) {
-            //alert('getRecord: homePageId = ' + this.homePageId + 'getRecord: error = ' + error);
+            this.errorMessage = reduceErrors(error);
+            //alert('getRecord: homePageId = ' + this.homePageId + 'getRecord: error = ' + this.errorMessage);
 
             this.dispatchEvent(
                 new ShowToastEvent({
@@ -94,15 +78,15 @@ export default class HrRunForLoveHome extends LightningElement {
             //alert('getRecord: homePageId = ' + this.homePageId);
 
             this.theHomepageRecord = data;
-            this.theTargetMiles = getFieldValue(data, TARGETMILES_FIELD);
-            this.theRunsCompleted = getFieldValue(data, RUNSCOMPLETED_FIELD);
-            this.theMilesToGo = getFieldValue(data, MILESTOGO_FIELD);
-            this.theDescription = getFieldValue(data, DESCRIPTION_FIELD);
-            this.theDaysLeft = getFieldValue(data, DAYSLEFT_FIELD);
-            this.theCurrentMiles = getFieldValue(data, CURRENTMILES_FIELD);
-            this.theFundraisingPage = getFieldValue(data, FUNDRAISINGPAGE_FIELD);
-            this.theDaysToStart = getFieldValue(data, DAYSTOSTART_FIELD);
-            this.theScoreboardId = getFieldValue(data, SCOREBOARD_FIELD);
+            this.theTargetMiles = data.T4R_Target_miles__c;
+            this.theRunsCompleted = data.T4R_Runs_completed__c;
+            this.theMilesToGo =  data.T4R_Miles_to_go__c;  
+            this.theDescription = data.T4R_Description__c; 
+            this.theDaysLeft = data.T4R_Days_left__c; 
+            this.theCurrentMiles = data.T4R_Current_miles__c; 
+            this.theFundraisingPage = data.T4R_Fundraising_page__c; 
+            this.theDaysToStart = data.T4R_Days_to_start__c; 
+            this.theScoreboardId = data.T4R_Run_For_Love_Scoreboard__c; 
 
             GetContactForHomePageId({ homePageId: this.homePageId }).then(result => {
                 this.theRelatedContact = result;
