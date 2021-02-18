@@ -1,6 +1,7 @@
 //
 // Log
 //
+// 18/1/2011 changed to without sharing 
 // 18/1/2011 in GetHomePageForId set cacheable=true
 // 
 
