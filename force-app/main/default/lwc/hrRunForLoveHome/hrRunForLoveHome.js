@@ -96,7 +96,7 @@ export default class HrRunForLoveHome extends LightningElement {
                 this.theRelatedContactFirstname = this.theRelatedContactName.split(" ")[0];
             })
             .then(() => {
-                // TODO:- Get the starting date from the scoreboard why doesn't this work?
+                // TODO:- Get the starting date from the scoreboard
                 //alert('GetScoreboardForId: theScoreboardId = ' + this.theScoreboardId);
 
                  GetScoreboardForId({ scoreboardId: this.theScoreboardId }).then(result => {
