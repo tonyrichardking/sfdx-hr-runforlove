@@ -82,8 +82,13 @@ export default class HrRunForLoveSignup extends LightningElement {
         /*         alert('handleSave: Firstname = ' + this.theFirstname + ', Lastname = ' + this.theLastname + ', Email = '
                     + this.theEmail + ', gdpr = ' + this.gdprValue + ', newsletter = ' + this.newsletterValue); */
 
-        const runnerJobName = 'Around The World In 40 Days - Runner';
-        const toSJobName = 'Around The World In 40 Days - ToS';
+        //const runnerJobName = 'Around The World In 40 Days - Runner';
+        //const toSJobName = 'Around The World In 40 Days - ToS';
+    
+        // TODO:- MPVE job names hard-wired
+        const runnerJobName = 'To The Moon - Runner';
+        const toSJobName = 'To The Moon - ToS';     
+
         var aroundTheWorldJobName = this.theSelectTos ? toSJobName : runnerJobName;
 
         var selectAgreeGdpr = this.gdprValue == 'agree' ? true : false;

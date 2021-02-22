@@ -24,10 +24,10 @@
     <apex:includeLightning />
 
     <head>
-        <title>Around the World in 40 Days</title>
+        <title>To The Moon!</title>
 
         <!--Socials meta tags-->
-        <meta property="og:title" content="Around the World: Log your miles"></meta>
+        <meta property="og:title" content="To The Moon: Log your miles"></meta>
         <meta property="og:description" content="I've just recorded my miles. Together, we're aiming to make it 24,901 miles (the distance around the world) in just 40 days!"></meta>
         <meta property="og:image" content="https://helprefugees--c.um4.visual.force.com/resource/1588331497000/campaign_logo"></meta>
         <meta property="og:url" content="https://helprefugees.org/aroundtheworld"></meta>

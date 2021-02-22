@@ -3,10 +3,10 @@
     <apex:includeLightning />
 
     <head>
-        <title>Around the World in 40 Days</title>
+        <title>To The Moon!</title>
 
         <!--Socials meta tags-->
-        <meta property="og:title" content="Around the World in 40 Days"></meta>
+        <meta property="og:title" content="To The Moon"></meta>
         <meta property="og:description" content="You are invited on a people-powered journey around the world. No passports required! Join today and help raise funds for refugees at risk from COVID-19"></meta>
         <meta property="og:image" content="https://helprefugees--c.um4.visual.force.com/resource/1588331497000/campaign_logo"></meta>
         <meta property="og:url" content="https://helprefugees.org/aroundtheworld"></meta>
@@ -695,7 +695,8 @@
                         <span class="rfl-text-bolder">Help Refugees with Thighs of Steel</span>
                     </p>
                 </div>
-                <a class="pledge-link" href="https://help-refugees.secure.force.com/aroundtheworldsignup">
+                <!-- <a href="https://help-refugees.secure.force.com/tothemoonsignup"> -->
+                <a class="pledge-link" href="https://tonysb1-help-refugees.cs127.force.com/tothemoonsignup/">
                     <span>Pledge your miles now</span>
                     <svg viewBox="0 0 43 27">
                         <path d="M4.81804 0.5L0.123535 5.1945L21.3052 26.3762L42.4868 5.1945L37.7923 0.5L21.3052 16.9872L4.81804 0.5Z">
@@ -731,9 +732,10 @@
         </div>
 
         <!-- Main links -->
+        <!-- <a href="https://help-refugees.secure.force.com/tothemoonsignup"> -->
         <nav class="main-links rfl-no-underline-link">
             <div class="link">
-                <a href="https://help-refugees.secure.force.com/aroundtheworldsignup">
+                <a href="https://tonysb1-help-refugees.cs127.force.com/tothemoonsignup/">
                     Get started
                     <svg height="16" viewBox="0 0 43 27" width="30">
                         <path d="M4.81804 0.5L0.123535 5.1945L21.3052 26.3762L42.4868 5.1945L37.7923 0.5L21.3052 16.9872L4.81804 0.5Z" fill="#44006e"></path>

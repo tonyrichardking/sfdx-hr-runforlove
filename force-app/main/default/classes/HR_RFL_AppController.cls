@@ -1,9 +1,9 @@
 //
 // Log
 //
-// 18/1/2011 changed to without sharing 
-// 18/1/2011 in GetHomePageForId set cacheable=true
-// 
+// 18/1/2021 changed to without sharing 
+// 18/1/2021 in GetHomePageForId set cacheable=true
+// 21/1/2021 added T4R_Run_For_Love_Scoreboard__c to GetHomePageForId
 
 public without sharing class HR_RFL_AppController 
 {
@@ -274,7 +274,8 @@ public without sharing class HR_RFL_AppController
         return [
             SELECT Id, Name, T4R_Target_miles__c, T4R_Runs_completed__c, 
                 T4R_Miles_to_go__c, T4R_Description__c, T4R_Latest_run_miles__c,
-                T4R_Days_left__c, T4R_Current_miles__c, T4R_Related_Runner__c
+                T4R_Days_left__c, T4R_Current_miles__c, T4R_Related_Runner__c, 
+                T4R_Run_For_Love_Scoreboard__c, T4R_Days_to_start__c
             FROM T4R_Run_For_Love_Home__c
             WHERE Id =: recordId
             //WITH SECURITY_ENFORCED

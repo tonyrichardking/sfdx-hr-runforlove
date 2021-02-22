@@ -72,6 +72,7 @@ export default class HrRunForLoveScoreboard extends LightningElement {
 
             this.theCampaignId = data;
 
+            // TODO:- target miles bound into code
             getScoreboardForCampaignId({ campaignId: this.theCampaignId }).then(result => {
                 this.theScoreboard = result;
                 this.theScoreboardName = result.Name;
@@ -85,7 +86,7 @@ export default class HrRunForLoveScoreboard extends LightningElement {
                 this.theFundraisingTotal = result.T4R_Fundraising_total__c;
                 this.theFundraisingTarget = result.T4R_Fundraising_target__c;
                 this.theFundraisingAmountToGo = result.T4R_Fundraising_amount_to_go__c;
-                this.theLapsOfTheWorld = (this.theTotalMilesCompleted / 24901).toFixed(2);
+                this.theLapsOfTheWorld = (this.theTotalMilesCompleted / 238855).toFixed(2);
 
                 this.isTargetReached = this.theMilesToReachTarget <= 0;
 

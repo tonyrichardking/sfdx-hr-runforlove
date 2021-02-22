@@ -15,6 +15,7 @@ import GetContactForHomePageId from '@salesforce/apex/HR_RFL_AppController.GetCo
 import UpdateHomePage from '@salesforce/apex/HR_RFL_AppController.UpdateHomePage';
 import UpdateHomePageLatestRunDistance from '@salesforce/apex/HR_RFL_AppController.UpdateHomePageLatestRunDistance';
 import GetHomePageForId from '@salesforce/apex/HR_RFL_AppController.GetHomePageForId';
+import GetScoreboardForId from '@salesforce/apex/HR_RFL_AppController.GetScoreboardForId';
 
 export default class HrRunForLoveHome extends LightningElement {
 
@@ -54,6 +55,7 @@ export default class HrRunForLoveHome extends LightningElement {
     isDisabled;
 
     //Debug
+    error;
     errorMessage;
 
     wiredResult;
@@ -80,34 +82,38 @@ export default class HrRunForLoveHome extends LightningElement {
             this.theHomepageRecord = data;
             this.theTargetMiles = data.T4R_Target_miles__c;
             this.theRunsCompleted = data.T4R_Runs_completed__c;
-            this.theMilesToGo =  data.T4R_Miles_to_go__c;  
-            this.theDescription = data.T4R_Description__c; 
-            this.theDaysLeft = data.T4R_Days_left__c; 
-            this.theCurrentMiles = data.T4R_Current_miles__c; 
-            this.theFundraisingPage = data.T4R_Fundraising_page__c; 
-            this.theDaysToStart = data.T4R_Days_to_start__c; 
-            this.theScoreboardId = data.T4R_Run_For_Love_Scoreboard__c; 
+            this.theMilesToGo = data.T4R_Miles_to_go__c;
+            this.theDescription = data.T4R_Description__c;
+            this.theDaysLeft = data.T4R_Days_left__c;
+            this.theCurrentMiles = data.T4R_Current_miles__c;
+            this.theFundraisingPage = data.T4R_Fundraising_page__c;
+            this.theDaysToStart = data.T4R_Days_to_start__c;
+            this.theScoreboardId = data.T4R_Run_For_Love_Scoreboard__c;
 
             GetContactForHomePageId({ homePageId: this.homePageId }).then(result => {
                 this.theRelatedContact = result;
                 this.theRelatedContactName = result.Name;
                 this.theRelatedContactFirstname = this.theRelatedContactName.split(" ")[0];
+            })
+            .then(() => {
+                // TODO:- Get the starting date from the scoreboard why doesn't this work?
+                //alert('GetScoreboardForId: theScoreboardId = ' + this.theScoreboardId);
+
+                 GetScoreboardForId({ scoreboardId: this.theScoreboardId }).then(result => {
+                    this.theScoreboardRecord = result;
+                    this.theStartDate = result.T4R_Campaign_start_date__c;
+                });
+
+                //alert('GetScoreboardForId: theStartDate = ' + this.theStartDate);
+            })
+            .catch(error => {
+                this.errorMessage = reduceErrors(error);
+                //alert('GetScoreboardForId: error = ' + this.errorMessage);
             });
 
             //
             // Compute all the boolean variables to switch the progess messages
             //
-
-            // TODO:- Get the starting date from the scoreboard why doesn't this work?
-
-            //alert('GetScoreboardForId: theScoreboardId = ' + this.theScoreboardId);
-            /*             GetScoreboardForId({ scoreboardId: this.theScoreboardId }).then(result => {
-                            this.theScoreboardRecord = result;
-                            this.theStartDate = result.T4R_Campaign_start_date__c;
-                        }); */
-            //alert('GetScoreboardForId: theStartDate = ' + this.theStartDate + 'Scoreboard = ' + this.theScoreboardRecord);
-
-            this.theStartDate = '23rd May';
 
             // We are getting ready
             this.gettingReady = this.theDaysToStart > 0;

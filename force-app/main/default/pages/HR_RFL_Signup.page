@@ -3,10 +3,10 @@
     <apex:includeLightning />
 
     <head>
-        <title>Around the World in 40 Days</title>
+        <title>To The Moon!</title>
 
         <!--Socials meta tags-->
-        <meta property="og:title" content="Around the World in 40 Days: Sign up"></meta>
+        <meta property="og:title" content="To The Moon: Sign up"></meta>
         <meta property="og:description" content="Join our people powered journey around the world! We're travelling 24,901 miles all from the safety of our homes, gardens and parks."></meta>
         <meta property="og:image" content="https://helprefugees--c.um4.visual.force.com/resource/1588331497000/campaign_logo"></meta>
         <meta property="og:url" content="https://helprefugees.org/aroundtheworld/signup"></meta>
