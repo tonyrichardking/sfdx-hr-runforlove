@@ -79,9 +79,9 @@
   text-transform: uppercase;
 }
 
-.rfl-log-header:after {
+/* .rfl-log-header:after {
   content: "Log an activity";
-}
+} */
 
 .rfl-log-header:before {
   content: "+";
@@ -93,9 +93,9 @@
   top: -1px;
 }
 
-.rfl-log-header b {
+/* .rfl-log-header b {
   display: none;
-}
+} */
 
 .rfl-run-tile {
   margin-left: 30px;

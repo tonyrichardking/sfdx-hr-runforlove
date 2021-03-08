@@ -58,6 +58,17 @@ export default class HrAllMyRuns extends LightningElement {
         this.theNotes = event.target.value;
     }
 
+    //
+    // Teams
+    //
+
+    theEnableTeams = false;
+
+    handleTeams() {
+        this.theEnableTeams = !this.theEnableTeams;
+        //alert('handleTeams: theEnableTeams = ' + this.theEnableTeams);
+    }
+
     // --------------------------------------------------------------------------------
     // update the list of completed runs
     handleSave() {

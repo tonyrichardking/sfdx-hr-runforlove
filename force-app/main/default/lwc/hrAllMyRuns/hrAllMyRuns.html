@@ -21,7 +21,7 @@
                 <lightning-tile>
                     <div class="rfl-log-tile">
                         <div class="rfl-log-header">
-                            <b>Log a run</b>
+                            <b>Log an activity</b>
                         </div>
 
                         <div class="slds-grid slds-grid_vertical">
@@ -57,6 +57,29 @@
                                 </lightning-button>
                             </div>
                         </div>
+                    </div>
+                </lightning-tile>
+
+                <lightning-tile>
+                    <div class="rfl-log-tile">
+                        <div class="rfl-log-header">
+                            <b>Participate As A Team</b>
+                        </div>
+                        <lightning-input type="checkbox" label="Enable Teams - create or become a member of a team."
+                            onchange={handleTeams}>
+                        </lightning-input>
+                        <template if:true={theEnableTeams}>
+                            <div class="slds-grid slds-grid_vertical">
+                                <c-hr-mpve-team-page>
+
+                                    <div>
+                                        "I understand my name is visible to other participants for the purpose of
+                                        forming or joining teams."
+                                    </div>
+
+                                </c-hr-mpve-team-page>
+                            </div>
+                        </template>
                     </div>
                 </lightning-tile>
             </template>
