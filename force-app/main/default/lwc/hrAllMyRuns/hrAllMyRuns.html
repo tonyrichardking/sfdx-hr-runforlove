@@ -125,4 +125,7 @@
             </template>
         </div>
     </div>
+    <template if:true={error}>
+        <c-error-panel errors={error}></c-error-panel>
+    </template>
 </template>

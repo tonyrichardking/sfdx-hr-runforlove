@@ -1,5 +1,6 @@
 import { LightningElement, track, api, wire } from 'lwc';
 import { refreshApex } from '@salesforce/apex';
+import { reduceErrors } from 'c/ldsUtils';
 
 import JOURNEY_ICON from '@salesforce/resourceUrl/journey';
 
@@ -8,7 +9,6 @@ import GetRunsForLoveForHomePage from '@salesforce/apex/HR_RFL_AppController.Get
 import AddRunForLove from '@salesforce/apex/HR_RFL_AppController.AddRunForLove';
 
 export default class HrAllMyRuns extends LightningElement {
-
 
     // Expose the static resource URL for use in the template
     journey = JOURNEY_ICON;
@@ -40,6 +40,10 @@ export default class HrAllMyRuns extends LightningElement {
     @api toolate;
     showtooEarlyError = false;
     showtooLateError = false;
+
+    //Debug
+    @track error;
+    errorMessage;
 
     handleTime(event) {
         // alert('handleTime: theTime = ' + event.target.value);
