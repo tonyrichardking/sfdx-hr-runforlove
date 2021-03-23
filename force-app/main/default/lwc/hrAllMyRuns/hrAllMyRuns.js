@@ -1,6 +1,7 @@
 import { LightningElement, track, api, wire } from 'lwc';
 import { refreshApex } from '@salesforce/apex';
 import { reduceErrors } from 'c/ldsUtils';
+import { NavigationMixin } from 'lightning/navigation';
 
 import JOURNEY_ICON from '@salesforce/resourceUrl/journey';
 
@@ -67,10 +68,16 @@ export default class HrAllMyRuns extends LightningElement {
     //
 
     theEnableTeams = false;
+    theTeamPageBaseUrl = 'https://tonysb1-help-refugees.cs127.force.com/tothemoonteam/';
+    theTeamRecordId = 'a2W3M0000005EfkUAE';
 
     handleTeams() {
         this.theEnableTeams = !this.theEnableTeams;
         //alert('handleTeams: theEnableTeams = ' + this.theEnableTeams);
+    }
+
+    openTeamPage() {
+        window.location.assign(this.theTeamPageBaseUrl + '?id=' + this.theTeamRecordId);
     }
 
     // --------------------------------------------------------------------------------

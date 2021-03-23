@@ -1,0 +1,561 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="true" showChat="false" showQuickActionVfHeader="false">
+
+    <!--
+    LOG
+    ===
+
+
+
+    -->
+
+    <apex:includeLightning />
+
+    <head>
+        <title>To The Moon!</title>
+
+        <!--Socials meta tags-->
+        <meta property="og:title" content="To The Moon: Your Teams"></meta>
+        <meta property="og:description" content="These are my 'To The Moon' teams"></meta>
+        <meta property="og:image" content="https://helprefugees--c.um4.visual.force.com/resource/1588331497000/campaign_logo"></meta>
+        <meta property="og:url" content="https://helprefugees.org/aroundtheworld"></meta>
+
+        <meta name="twitter:title" content="To The Moon: My Teams"></meta>
+        <meta name="twitter:description" content="These are my 'To The Moon' teams"></meta>
+        <meta name="twitter:image" content="https://helprefugees--c.um4.visual.force.com/resource/1588331497000/campaign_logo"></meta>
+
+        <script>(function (UITheme) {
+                UITheme.getUITheme = function () {
+                    return UserContext.uiTheme;
+                };
+            }(window.UITheme = window.UITheme || {}));</script>
+
+    </head>
+
+    <body>
+        <span id="j_id0:j_id1"></span>
+
+        <meta http-equiv="PRAGMA" content="NO-CACHE"></meta>
+        <meta http-equiv="Expires" content="Mon, 01 Jan 1990 12:00:00 GMT"></meta>
+
+        <meta content="width=device-width, initial-scale=1" name="viewport"></meta>
+        <title>Your Miles: Around the World in 40 Days</title>
+
+        <!-- Styling for main page -->
+        <style type="text/css">
+            @import url("https://fonts.googleapis.com/css?family=Karla:regular,bold");
+
+            body {
+                background-color: #fff;
+            }
+
+            .FlowContainer {
+                max-width: 1200px;
+                margin: auto;
+                padding: 0 1.5rem;
+            }
+
+            @font-face {
+                font-family: PlatformMedium;
+                src: url('{!$Resource.Platform_Medium}');
+            }
+
+            h1,
+            h2,
+            h3,
+            h4 {
+                font-family: PlatformMedium, Arial, sans-serif;
+                letter-spacing: 3px;
+            }
+
+            /*-------------------------------------------------*/
+
+            /* RFL Header */
+
+            /*-------------------------------------------------*/
+
+            .rfl-header {
+                max-width: 1400px;
+                margin: 0 auto;
+                width: 100%;
+                color: #44006E;
+                font-size: 1rem;
+                position: relative;
+            }
+
+            @media (max-width: 767px) {
+                .rfl-header {
+                    background: #44D1B5;
+                }
+            }
+
+            .outline {
+                color: #44006E;
+                -webkit-text-fill-color: #44D1B5;
+                -webkit-text-stroke-width: 1px;
+                -webkit-text-stroke-color: #44006E;
+            }
+
+            .rfl-banner-image {
+                width: 100%;
+                display: none;
+            }
+
+            .rfl-h1-strip {
+                display: none;
+            }
+
+            @media (min-width: 768px) {
+                .rfl-h1-strip {
+                    display: block;
+                    background: #44D1B5;
+                    padding: 2rem 1.5rem;
+                }
+
+                .rfl-h1-mobile {
+                    display: none;
+                }
+            }
+
+            .rfl-h1-mobile {
+                font-size: 50px;
+                text-transform: uppercase;
+                text-align: center;
+                margin-top: -0.75rem;
+                padding: 0 1rem 0.75rem 1rem;
+            }
+
+            .rfl-h1-strip h1 {
+                font-size: 60px;
+                text-transform: uppercase;
+                width: 100%;
+                max-width: 768px;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .rfl-ticket {
+                margin: 0 auto;
+                max-width: 500px;
+                width: 100%;
+                font-family: "Karla", Arial, sans-serif;
+                padding: 1rem 1.75rem 2rem 1.75rem;
+                text-align: center;
+                box-sizing: border-box;
+            }
+
+            @media (max-width: 374px) {
+                .rfl-ticket {
+                    padding: 1rem 0.75rem 2rem 0.75rem;
+                }
+            }
+
+            @media (min-width: 768px) {
+                .rfl-ticket {
+                    width: 320px;
+                    background: #FFE15D;
+                    position: absolute;
+                    right: 7%;
+                    top: 0;
+                }
+
+                .logo-holder {
+                    background: #fff;
+                    max-width: 80%;
+                }
+            }
+
+            .logo-holder img {
+                width: 100%;
+            }
+
+            .logo-holder {
+                max-width: 280px;
+                margin: 1.25rem auto 0.5rem auto;
+            }
+
+            .rfl-ticket-text a,
+            .rfl-ticket-text a:active,
+            .rfl-ticket-text a:hover,
+            .rfl-ticket-text a:visited {
+                color: #44006E;
+                text-decoration: none;
+            }
+
+            @media (max-width: 767px) {
+                .rfl-ticket-text {
+                    background: #fff;
+                    padding: 0 1rem 1rem 1rem;
+                    box-shadow: 1px 1px 8px 0 rgba(100, 100, 100, 0.2);
+                    margin-top: 1rem;
+                    margin-bottom: 0.25rem;
+                }
+            }
+
+            .rfl-ticket p,
+            .rfl-ticket span {
+                margin: 1rem 0 0 0;
+                display: inline-block;
+            }
+
+            .rfl-text-larger {
+                font-size: 1.125rem;
+                font-weight: 800;
+            }
+
+            .rfl-text-smaller {
+                font-size: 0.935rem;
+            }
+
+            .rfl-text-bolder {
+                font-weight: 800;
+            }
+
+            @media (min-width: 768px) {
+                .rfl-banner-image {
+                    background: url('{!$Resource.badminton_header_3}');
+                    background-repeat: no-repeat;
+                    background-position: 100%;
+                    background-size: cover;
+                    height: 300px;
+                    display: block;
+                }
+            }
+
+            /*-------------------------------------------------*/
+
+            /* RFL Donate */
+
+            /*-------------------------------------------------*/
+
+            .home-exp,
+            .rfl-donate {
+                max-width: 816px;
+                margin: 0 auto;
+                padding: 1rem 1.5rem 0 1.5rem;
+                line-height: 1.25;
+                box-sizing: border-box;
+                font-family: "Karla", Arial, sans-serif;
+                font-size: 1rem;
+                color: #44006E;
+                text-align: center;
+            }
+
+            .rfl-donate {
+                padding: 1rem 9rem 0 9rem;
+            }
+
+            .home-exp .divider {
+                width: 50%;
+                margin: 1.75rem auto 3rem auto;
+                height: 2px;
+                background: #FF6CB5;
+            }
+
+            @media (max-width: 767px) {
+                .rfl-donate {
+                    background: rgba(68, 209, 182, 0.1);
+                    margin-top: -1rem;
+                    padding: 1rem 1.5rem 3rem 1.5rem;
+                    padding-top: 0;
+                }
+            }
+
+            .donate-btn {
+                background: #FFE15D;
+                display: inline-block;
+                line-height: 1.25;
+                color: #44006E !important;
+                text-transform: uppercase;
+                font-size: 1rem;
+                padding: 0.5rem 1rem;
+                font-weight: 800;
+            }
+
+            /*-------------------------------------------------*/
+
+            /* RFL Footer */
+
+            /*-------------------------------------------------*/
+
+            .rfl-footer {
+                background: #44D1B5;
+                padding: 3rem 0 2rem 0;
+            }
+
+            @media (min-width: 768px) {
+                .rfl-footer {
+                    padding: 3rem 0;
+                    margin-top: 3rem;
+                }
+            }
+
+            @media (min-width: 1024px) {
+                .rfl-footer {
+                    margin-top: 4rem;
+                }
+            }
+
+            .rfl-footer .logos a:last-child img {
+                margin-top: 10px;
+            }
+
+            .rfl-footer .logos img {
+                display: block;
+                margin: 0 auto;
+            }
+
+            @media (min-width: 500px) {
+                .rfl-footer .logos {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .rfl-footer .logos a {
+                    margin: 0 15px;
+                }
+
+                .rfl-footer .logos a:first-child img {
+                    margin-left: 70px;
+                }
+            }
+
+            .rfl-footer-content {
+                color: #fff;
+                font-family: "Karla", Arial, sans-serif;
+                max-width: 808px;
+                padding: 0 20px;
+                margin: 0 auto;
+                font-size: 1rem;
+                text-align: center;
+            }
+
+            .rfl-footer-content ul {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1rem 4rem 1.5rem 4rem;
+            }
+
+            .rfl-footer-content li {
+                list-style: none;
+                margin: 0;
+            }
+
+            .list-spacer {
+                height: 1rem;
+                width: 1px;
+                background: #fff;
+                display: block;
+            }
+
+            @media (max-width: 767px) {
+                .rfl-footer-content ul {
+                    flex-wrap: wrap;
+                    font-size: 1rem;
+                    border-bottom: 1px solid #fff;
+                    border-top: 1px solid #fff;
+                    max-width: 200px;
+                    margin: 1.5rem auto;
+                    padding: 1rem;
+                    box-sizing: border-box;
+                }
+
+                .rfl-footer-content li {
+                    width: 100%;
+                    padding: 0.25rem 0;
+                }
+
+                .list-spacer {
+                    display: none;
+                }
+            }
+
+            .rfl-no-underline-link a,
+            .rfl-no-underline-link a:active,
+            .rfl-no-underline-link a:hover,
+            .rfl-no-underline-link a:visited {
+                color: #fff;
+                font-weight: 800;
+                text-decoration: none;
+            }
+
+            .emaillink:active,
+            .emaillink:hover,
+            .emaillink:visited {
+                color: #fff;
+                text-decoration: underline !important;
+            }
+        </style>
+
+        <!-- Header -->
+        <div class="rfl-header">
+            <div class="rfl-banner-image"></div>
+            <div class="rfl-h1-strip">
+                <h1>
+                    <span class="outline">Your</span> miles
+                </h1>
+            </div>
+            <div class="rfl-ticket">
+                <div class="logo-holder">
+                    <a href="https://help-refugees.secure.force.com/aroundtheworldmain" target="_blank">
+                        <img alt="To The Moon" src="{!$Resource.campaign_logo}" />
+                    </a>
+                </div>
+                <div class="rfl-ticket-text">
+                    <p class="rfl-text-bolder">
+                        Thank you so much for taking part in our To The Moon Challenge - you make what we&nbsp;do&nbsp;possible!
+                    </p>
+                    <p>
+                        For any issues or questions, please&nbsp;contact
+                        <a class="emaillink" href="mailto:aroundtheworld@helprefugees.org" target="_blank">
+                            aroundtheworld@helprefugees.org
+                        </a>
+                    </p>
+
+                    <p class="rfl-text-bolder">
+                        Good Luck! xx
+                    </p>
+                </div>
+            </div>
+            <div class="rfl-h1-mobile">
+                <h1>
+                    <span class="outline">Your</span> miles
+                </h1>
+            </div>
+        </div>
+
+        <!-- Explanation -->
+        <div class="home-exp">
+            <p>
+                Whether you're pledging one mile or 100, every mile pledged will count towards our collective effort, and help raise crucial
+                funds for refugees unable to protect themselves against the pandemic. Remember, twenty minutes of indoor
+                exercise counts as&nbsp;a&nbsp;mile!
+            </p>
+            <div class="divider"></div>
+        </div>
+
+        <!-- LWC Container -->
+        <div class="FlowContainer slds-card__body">
+            <div id="mpve-team" />
+        </div>
+
+        <!-- Footer -->
+
+        <div class="rfl-donate rfl-no-underline-link">
+            <p>
+                If you're not fundraising, but would still like to contribute, you can always donate for the miles you've completed.
+            </p>
+            <a class="donate-btn" href="#" id="donate_lightbox_button">
+                Donate
+            </a>
+            <div id="donate_lightbox" style="display: none; opacity: 0">
+                <div id="donate_lightbox_backdrop"></div>
+                <div id="donate_lightbox_content">
+                    <div id="around-the-world"></div>
+                </div>
+            </div>
+            <script src="https://pym.nprapps.org/pym.v1.min.js"></script>
+            <script src="https://donate.helprefugees.org/static/js/embed.714b648673e9.js"></script>
+            <script>
+                var pymParent = new pym.Parent("around-the-world", "https://donate.helprefugees.org/donations/around-the-world/embed/", {});
+            </script>
+        </div>
+
+        <div class="rfl-footer">
+            <div class="rfl-footer-content rfl-no-underline-link">
+                <div class="logos">
+                    <a href="https://helprefugees.org/" target="_blank">
+                        <img alt="Help Refugees logo" src="{!$Resource.help_refugees_logo}" style="width: 100px;" />
+                    </a>
+                    <a href="https://choose.love/" target="_blank">
+                        <img alt="Choose Love logo" src="{!$Resource.Choose_Love_Logo}" style="width: 100px;" />
+                    </a>
+                    <a href="https://www.thighsofsteel.com/" target="_blank">
+                        <img alt="Thighs of Steel logo" src="{!$Resource.t_o_s_logo}" style="width: 150px;" />
+                    </a>
+                </div>
+                <nav>
+                    <ul class="rfl-text-larger">
+                        <li>
+                            <a href="https://helprefugees.org/" target="_blank">
+                                Help Refugees Home
+                            </a>
+                        </li>
+                        <span aria-hidden="true" class="list-spacer"></span>
+                        <li>
+                            <a href="https://helprefugees.org/projects/" target="_blank">
+                                What we do
+                            </a>
+                        </li>
+                        <span aria-hidden="true" class="list-spacer"></span>
+                        <li>
+                            <a href="https://donate.helprefugees.org/campaigns/around-the-world/" target="_blank">
+                                Donate
+                            </a>
+                        </li>
+                        <span aria-hidden="true" class="list-spacer"></span>
+                        <li>
+                            <a href="mailto:aroundtheworld@helprefugees.org" target="_blank">
+                                Contact us
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <p class="rfl-text-smaller">
+                    Help Refugees Limited, Company No 09842577, works under the auspices of Prism the Gift Fund, Charity No 1099682. Donations
+                    raised through this website are paid to the Help Refugees restricted fund held by Prism The Gift Fund.
+                </p>
+            </div>
+        </div>
+
+        <!-- Lightning Web Component -->
+        <script>
+
+            /*
+                Use Lightning Web Components in Visualforce Pages
+
+                https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.use_visualforce
+            */
+
+            /*
+                Dynamically Creating Components
+
+                https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/js_cb_dynamic_cmp_async.htm
+
+                The syntax is:
+                    $A.createComponent(String type, Object attributes, function callback)
+
+                    type—The type of component to create; for example, "lightning:button".
+                    attributes—A map of attributes for the component, including the local Id (aura:id).
+                    callback(cmp, status, errorMessage)—The callback to invoke after the component is created.
+
+                    The callback has three parameters.
+
+                    cmp—The component that was created. This enables you to do something with the new component, such as add it to the body of the component that creates it. If there’s an error, cmp is null.
+                    status—The status of the call. The possible values are SUCCESS, INCOMPLETE, or ERROR. Always check that the status is SUCCESS before you try to use the component.
+                    errorMessage—The error message if the status is ERROR.
+            */
+
+            var idParam = "{!$CurrentPage.parameters.id}";
+
+            /* Create the top-level RunForLoveHome Lightning Web Component */
+
+            $Lightning.use("c:HR_RFL_App", function () {
+                $Lightning.createComponent("c:mpveTeamPage",
+                    { teamPageId: idParam },
+                    "mpve-team",
+                    function (cmp) {
+                        console.log("mpveTeamPage was created");
+                        // do some stuff
+                    }
+                );
+            });
+
+        </script>
+
+        <div id="auraErrorMessage"></div>
+        <!--render facet: 5:0-->
+    </body>
+
+</apex:page>

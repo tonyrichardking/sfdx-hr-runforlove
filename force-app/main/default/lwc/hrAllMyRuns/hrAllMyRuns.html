@@ -70,14 +70,7 @@
                         </lightning-input>
                         <template if:true={theEnableTeams}>
                             <div class="slds-grid slds-grid_vertical">
-                                <c-hr-mpve-team-page>
-
-                                    <div>
-                                        "I understand my name is visible to other participants for the purpose of
-                                        forming or joining teams."
-                                    </div>
-
-                                </c-hr-mpve-team-page>
+                                <c-hr-mpve-team-page></c-hr-mpve-team-page>
                             </div>
                         </template>
                     </div>
@@ -125,6 +118,7 @@
             </template>
         </div>
     </div>
+    <c-hr-mpve-team-page homepageid={homepageid}></c-hr-mpve-team-page>
     <template if:true={error}>
         <c-error-panel errors={error}></c-error-panel>
     </template>

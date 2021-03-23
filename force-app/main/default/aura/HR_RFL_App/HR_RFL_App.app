@@ -3,4 +3,5 @@
 	<aura:dependency resource="c:hrRunForLoveHome" />
 	<aura:dependency resource="c:hrRunForLoveScoreboard" />
 	<aura:dependency resource="c:hrRunForLoveSignup" />
+	<aura:dependency resource="c:mpveTeamPage" />
 </aura:application>

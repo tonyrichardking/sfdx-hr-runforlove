@@ -1,0 +1,45 @@
+<template>
+    <p>Welcome 'To The Moon' Team!</p>
+
+    <lightning-card title="MVPE Team Page" icon-name="standard:contact">
+        <template if:true={theTeams}>
+            <!-- List of completed runs -->
+            <p>You have teams!</p>
+            <div class="slds-grid slds-grid_vertical">
+                <template for:each={theTeams} for:item="team">
+                    <div key={team.Id}>
+                        <!-- One completed run -->
+                        <lightning-tile>
+                            <div class="rfl-run-tile">
+                                <div class="slds-grid slds-grid_vertical">
+                                    <div class="slds-grid slds-box slds-box_small">
+                                        <div class="slds-col">
+                                            <p>Name Of Team = {team.Name}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </lightning-tile>
+                    </div>
+                </template>
+            </div>
+        </template>
+        <template if:false={theTeams}>
+            <p>You don't have any teams yet.  Your team page = {teamPageId}</p>
+        </template>
+        <div class="slds-size_1-of-2">
+            <p>theNewTeamName = {theNewTeamName}.</p>
+            <div style="width: 40%; padding: 2px 2px">
+                <lightning-input value={theInputTeamName} placeholder="New Team Name" onchange={handleChangeTeamName}>
+                </lightning-input>
+            </div>
+            <div class="homepage-button">
+                <lightning-button variant="base" label="CREATE A TEAM" title="Create a Team" onclick={handleCreateTeam}>
+                </lightning-button>
+            </div>
+        </div>
+        <template if:true={error}>
+            <c-error-panel errors={error}></c-error-panel>
+        </template>
+    </lightning-card>
+</template>
