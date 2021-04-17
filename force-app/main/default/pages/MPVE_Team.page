@@ -11,7 +11,7 @@
     <apex:includeLightning />
 
     <head>
-        <title>To The Moon!</title>
+        <title>To The Moon Teams!</title>
 
         <!--Socials meta tags-->
         <meta property="og:title" content="To The Moon: Your Teams"></meta>

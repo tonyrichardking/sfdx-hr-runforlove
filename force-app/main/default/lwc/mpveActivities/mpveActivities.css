@@ -1,0 +1,263 @@
+.rfl-home-tile {
+  max-width: 768px;
+  margin: 0 auto;
+  font-size: 1rem;
+  font-family: Karla, Arial, sans-serif;
+}
+
+/* Causes description list to display horizontally with dt (term) consuming 33% of the space and the dd (description) taking up the rest. */
+.slds-dl_horizontal {
+  display: flex;
+}
+
+/* Marks a term */
+.slds-dl_horizontal__label {
+  width: auto !important;
+  padding-left: 1rem;
+}
+
+/* Marks a term */
+.slds-dl_horizontal__label b {
+  font-weight: 400 !important;
+}
+
+/* Marks a description */
+.slds-dl_horizontal__detail {
+  width: auto !important;
+  margin-left: auto;
+  padding-right: 1rem;
+  font-weight: 600;
+}
+
+/* Welcome */
+.slds-dl_horizontal__label.rfl-welcome-1 {
+  color: #44006e;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 800;
+  padding-left: 0 !important;
+  padding-right: 0.5rem !important;
+  font-family: PlatformMedium, Arial, sans-serif;
+  letter-spacing: 2px;
+  line-height: 0.85;
+}
+
+/* Contact Name */
+.slds-dl_horizontal__detail.rfl-welcome-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 0.25rem;
+  color: #44006e;
+  font-size: 1.35rem;
+  font-weight: 500 !important;
+  margin-left: 0 !important;
+}
+
+/* Target miles, completed, to go */
+.slds-grid.rfl-stats-1 {
+  background-color: #44d1b5;
+  color: #fff;
+  margin: 4px 0 10px;
+  text-transform: uppercase;
+  box-shadow: 1px 1px 8px 0 hsla(0, 0%, 39%, 0.2);
+}
+
+@media (min-width: 768px) {
+  .slds-grid.rfl-stats-1 {
+    font-size: 1.125rem;
+  }
+}
+
+.rfl-home-tile .slds-size_1-of-2,
+.rfl-home-tile .slds-size_1-of-3 {
+  padding: 0.5rem 0 !important;
+}
+
+@media (max-width: 599px) {
+  .rfl-stats-1 {
+    flex-wrap: wrap;
+  }
+
+  .rfl-home-tile .slds-size_1-of-2,
+  .rfl-home-tile .slds-size_1-of-3 {
+    width: 100% !important;
+  }
+
+  .rfl-home-tile .slds-size_1-of-3:not(:last-child) {
+    border-bottom: 1px solid #fff;
+  }
+}
+
+@media (min-width: 600px) {
+  .rfl-home-tile .slds-size_1-of-3:not(:last-child) {
+    border-right: 1px solid #fff;
+  }
+}
+
+/* 
+  Days left and update target button  
+*/
+
+/* Days left */
+
+.slds-grid.rfl-stats-2 {
+  margin-bottom: 40px;
+}
+
+.slds-grid.rfl-stats-2 div {
+  border: 0;
+  border-radius: 0;
+}
+
+.rfl-days-left {
+  width: 33.33%;
+  text-transform: uppercase;
+  color: #44d1b5;
+  box-shadow: 1px 1px 8px 0 hsla(0, 0%, 39%, 0.2);
+}
+
+@media (min-width: 768px) {
+  .rfl-days-left {
+    font-size: 1.125rem;
+  }
+}
+
+.rfl-target-miles {
+  width: auto !important;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 0 0 0 auto;
+  padding: 0 !important;
+}
+
+@media (max-width: 599px) {
+  .rfl-stats-2 {
+    flex-wrap: wrap;
+  }
+
+  .rfl-target-miles {
+    margin-top: 0.75rem;
+  }
+}
+
+/* Update target button */
+
+.homepage-button {
+  background: #ffe15d;
+  border-radius: 0;
+  border: 0;
+  color: #44006e;
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding: 2px 2px;
+  font-weight: 800;
+}
+
+.rfl-target-miles .rfl-target-miles-input {
+  width: 4rem;
+  margin-right: 0.5rem;
+  box-shadow: none;
+  border: none;
+}
+
+.rfl-target-miles input {
+  border-radius: 0;
+  border: 1px solid #ffe15d;
+  width: 4rem;
+  font-size: 0.935rem;
+  padding: 1px 0.75rem;
+  color: #44006e;
+}
+
+.rfl-target-miles input:focus {
+  border-color: #44006e;
+}
+
+.slds-grid.rfl-stats-2 svg {
+  display: none !important;
+}
+
+/* Event progress info */
+
+.rfl-home-progress {
+  background-color: #ffe15d;
+  color: #44006e;
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  font-weight: 800;
+  padding: 0.5rem 2rem;
+  font-family: PlatformMedium, Arial, sans-serif;
+  letter-spacing: 2px;
+  max-width: 768px;
+  margin: 0 auto 2rem auto;
+  line-height: 1;
+  text-align: center;
+  position: relative;
+}
+
+.rfl-home-celebration {
+  background-color: #ff6cb5;
+  color: #44006e;
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  font-weight: 800;
+  padding: 0.5rem 2rem;
+  font-family: PlatformMedium, Arial, sans-serif;
+  letter-spacing: 2px;
+  max-width: 768px;
+  margin: 0 auto 2rem auto;
+  line-height: 1;
+  text-align: center;
+  position: relative;
+}
+
+.rfl-home-celebration:before,
+.rfl-home-celebration:after {
+  position: absolute;
+  content: url(celebration.svg);
+}
+
+.rfl-home-celebration:before {
+  left: 0.5rem;
+  top: 0.75rem;
+  transform: rotate(35deg);
+}
+
+.rfl-home-celebration:after {
+  right: 1rem;
+  top: 1.5rem;
+  transform: rotate(120deg);
+}
+
+@media (max-width: 767px) {
+  .rfl-home-celebration {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .rfl-home-celebration:after {
+    right: -1.5rem;
+  }
+
+  .rfl-home-celebration:before {
+    left: -2rem;
+  }
+}
+
+.slds-grid.slds-wrap {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .slds-medium-size_6-of-12.slds-large-size_8-of-12 {
+    width: 60% !important;
+  }
+
+  .slds-medium-size_6-of-12.slds-large-size_4-of-12 {
+    width: 40% !important;
+  }
+}

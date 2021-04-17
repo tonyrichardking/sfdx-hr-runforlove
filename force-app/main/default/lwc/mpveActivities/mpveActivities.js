@@ -21,7 +21,7 @@ export default class HrRunForLoveHome extends LightningElement {
   // wire service: https://rajvakati.com/2019/02/01/lightning-web-components-wire-service-3/
   // expose lwc to appbuilder: https://rajvakati.com/2018/12/26/lightning-web-components-in-lightning-app-builder/
 
-  @api homePageId;
+  @api homepageid;
 
   // Home page fields
   @track theHomepageRecord;
@@ -57,16 +57,37 @@ export default class HrRunForLoveHome extends LightningElement {
   error;
   errorMessage;
 
+  //
+  // Teams
+  //
+
+  theEnableTeams = false;
+  theTeamPageBaseUrl = 'https://tonysb1-help-refugees.cs127.force.com/tothemoonteam/';
+  theTeamRecordId = 'a2W3M0000005EfkUAE';
+
+  handleTeams() {
+    this.theEnableTeams = !this.theEnableTeams;
+    //alert('handleTeams: theEnableTeams = ' + this.theEnableTeams);
+  }
+
+  openTeamPage() {
+    window.location.assign(this.theTeamPageBaseUrl + '?id=' + this.theTeamRecordId);
+  }
+
+  //
+  // Home page record
+  //
+
   wiredResult;
 
   // Reactive variables are prefixed with $.  If a reactive variable changes, the wire service provisions new data
-  //@wire(getRecord, { recordId: '$homePageId', fields })
-  @wire(GetHomePageForId, { recordId: "$homePageId" })
+  //@wire(getRecord, { recordId: '$homepageid', fields })
+  @wire(GetHomePageForId, { recordId: "$homepageid" })
   wiredRecord({ error, data }) {
     this.wiredResult = data;
     if (error) {
       this.errorMessage = reduceErrors(error);
-      //alert('getRecord: homePageId = ' + this.homePageId + 'getRecord: error = ' + this.errorMessage);
+      //alert('GetHomePageForId: homepageid = ' + this.homepageid + 'getRecord: error = ' + this.errorMessage);
 
       this.dispatchEvent(
         new ShowToastEvent({
@@ -76,7 +97,7 @@ export default class HrRunForLoveHome extends LightningElement {
         })
       );
     } else if (data) {
-      //alert('getRecord: homePageId = ' + this.homePageId);
+      //alert('GetHomePageForId: homepageid = ' + this.homepageid);
 
       this.theHomepageRecord = data;
       this.theTargetMiles = data.T4R_Target_miles__c;
@@ -89,7 +110,7 @@ export default class HrRunForLoveHome extends LightningElement {
       this.theDaysToStart = data.T4R_Days_to_start__c;
       this.theScoreboardId = data.T4R_Run_For_Love_Scoreboard__c;
 
-      GetContactForHomePageId({ homePageId: this.homePageId })
+      GetContactForHomePageId({ homePageId: this.homepageid })
         .then((result) => {
           this.theRelatedContact = result;
           this.theRelatedContactName = result.Name;
@@ -146,14 +167,14 @@ export default class HrRunForLoveHome extends LightningElement {
   handleNewRunEvent(event) {
     //alert('handleNewRunEvent: gettingReady = ' + this.gettingReady + '; isFinished = ' + this.isFinished);
 
-    GetHomePageForId({ recordId: this.homePageId }).then((result) => {
+    GetHomePageForId({ recordId: this.homepageid }).then((result) => {
       this.theMilesToGo = result.T4R_Miles_to_go__c;
       this.theCurrentMiles = result.T4R_Current_miles__c;
     });
 
     //alert('handleNewRunEvent: latestRunMileage = ' + event.detail.latestRunMileage);
     UpdateHomePageLatestRunDistance({
-      homePageId: this.homePageId,
+      homepageid: this.homepageid,
       miles: event.detail.latestRunMileage
     });
   }
@@ -170,7 +191,7 @@ export default class HrRunForLoveHome extends LightningElement {
     this.theTargetMiles = this.newTargetMiles;
     this.theMilesToGo = this.theTargetMiles - this.theCurrentMiles;
 
-    UpdateHomePage({ homePageId: this.homePageId, miles: this.theTargetMiles });
+    UpdateHomePage({ homepageid: this.homepageid, miles: this.theTargetMiles });
 
     /*         .then(result => {
                     alert('handleSaveMiles: read home page = ' + result.Id);

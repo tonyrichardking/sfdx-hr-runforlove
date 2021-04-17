@@ -1,0 +1,83 @@
+<template>
+
+    <div class="rfl-home-tile">
+
+        <!-- Welcome -->
+        <div class="slds-region_narrow">
+            <dl class="slds-dl_horizontal">
+                <dt class="slds-dl_horizontal__label rfl-welcome-1"><b>Welcome</b></dt>
+                <dd class="slds-dl_horizontal__detail rfl-welcome-2">{theRelatedContactName}</dd>
+            </dl>
+        </div>
+
+        <!-- 
+            View Selector 
+        -->
+
+        <!-- with border / by default -->
+        <div class="slds-p-around_medium ">
+            <lightning-button label="Profile" alternative-text="My Profile" class="slds-m-left_xx-small mpve-button"
+                title="Profile" onclick={handleProfile} variant="base" icon-name="utility:user_role">
+            </lightning-button>
+
+            <lightning-button label="Activities" alternative-text="My Activities"
+                class="slds-m-left_xx-small mpve-button" title="Activities" onclick={handleActivities} variant="base"
+                icon-name="utility:trail">
+            </lightning-button>
+
+            <lightning-button label="Teams" alternative-text="My Teams" class="slds-m-left_xx-small mpve-button"
+                title="Teams" onclick={handleTeams} variant="base" icon-name="utility:groups">
+            </lightning-button>
+
+            <lightning-button label="Follow" alternative-text="Follow" class="slds-m-left_xx-small mpve-button"
+                title="Follow" onclick={handleFollow} variant="base" icon-name="utility:favorite">
+            </lightning-button>
+
+            <lightning-button label="Chat" alternative-text="Chat" class="slds-m-left_xx-small mpve-button" title="Chat"
+                onclick={handleChat} variant="base" icon-name="utility:new_direct_message">
+            </lightning-button>
+        </div>
+
+        <!-- 
+                My Profile 
+            -->
+
+        <template if:true={theEnableProfile}>
+            <c-mpve-profile homepageid={homePageId}></c-mpve-profile>
+        </template>
+
+        <!-- 
+                 My Activities 
+            -->
+
+        <template if:true={theEnableActivities}>
+            <c-mpve-activities homepageid={homePageId}></c-mpve-activities>
+        </template>
+
+        <!-- 
+                My Teams
+            -->
+
+        <template if:true={theEnableTeams}>
+            <c-mpve-team-dashboard homepageid={homePageId}></c-mpve-team-dashboard>
+        </template>
+
+        <!-- 
+                Follow
+            -->
+
+        <template if:true={theEnableFollow}>
+            <c-mpve-follow homepageid={homePageId}></c-mpve-follow>
+        </template>
+
+        <!-- 
+                Chat 
+            -->
+
+        <template if:true={theEnableChat}>
+            <c-mpve-chat homepageid={homePageId}></c-mpve-chat>
+        </template>
+
+    </div>
+
+</template>

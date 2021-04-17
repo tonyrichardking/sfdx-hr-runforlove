@@ -63,23 +63,6 @@ export default class HrAllMyRuns extends LightningElement {
         this.theNotes = event.target.value;
     }
 
-    //
-    // Teams
-    //
-
-    theEnableTeams = false;
-    theTeamPageBaseUrl = 'https://tonysb1-help-refugees.cs127.force.com/tothemoonteam/';
-    theTeamRecordId = 'a2W3M0000005EfkUAE';
-
-    handleTeams() {
-        this.theEnableTeams = !this.theEnableTeams;
-        //alert('handleTeams: theEnableTeams = ' + this.theEnableTeams);
-    }
-
-    openTeamPage() {
-        window.location.assign(this.theTeamPageBaseUrl + '?id=' + this.theTeamRecordId);
-    }
-
     // --------------------------------------------------------------------------------
     // update the list of completed runs
     handleSave() {

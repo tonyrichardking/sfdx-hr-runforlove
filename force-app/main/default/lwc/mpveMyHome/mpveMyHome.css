@@ -1,0 +1,51 @@
+.rfl-home-tile {
+  max-width: 768px;
+  margin: 0 auto;
+  font-size: 1rem;
+  font-family: Karla, Arial, sans-serif;
+}
+
+.mpve-button {
+  background: #ffe15d;
+  border-radius: 0;
+  border: 0; 
+  margin: 4px;
+  color: #44006e;
+  font-size: 1rem;
+  padding: 2px 2px;
+  font-weight: 800;
+  display: inline-flex;
+}
+
+/* Marks a description */
+.slds-dl_horizontal__detail {
+  width: auto !important;
+  margin-left: auto;
+  padding-right: 1rem;
+  font-weight: 600;
+}
+
+/* Welcome */
+.slds-dl_horizontal__label.rfl-welcome-1 {
+  color: #44006e;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 800;
+  padding-left: 0 !important;
+  padding-right: 0.5rem !important;
+  font-family: PlatformMedium, Arial, sans-serif;
+  letter-spacing: 2px;
+  line-height: 0.85;
+}
+
+/* Contact Name */
+.slds-dl_horizontal__detail.rfl-welcome-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 0.25rem;
+  color: #44006e;
+  font-size: 1.35rem;
+  font-weight: 500 !important;
+  margin-left: 0 !important;
+}

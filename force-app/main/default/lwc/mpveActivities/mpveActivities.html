@@ -1,0 +1,116 @@
+<template>
+
+    <template if:true={theHomepageRecord}>
+
+        <!-- Home page header -->
+        <lightning-card title="My Activities" icon-name="utility:trail">
+
+            <div class="rfl-home-tile">
+
+                <div class="slds-grid slds-grid_vertical">
+
+                    <!-- Statistics - target miles, completed, to go -->
+
+                    <div class="slds-grid rfl-stats-1">
+                        <div class="slds-col slds-size_1-of-3">
+                            <dl class="slds-dl_horizontal">
+                                <dt class="slds-dl_horizontal__label"><b>Target Miles</b></dt>
+                                <dd class="slds-dl_horizontal__detail">{theTargetMiles}</dd>
+                            </dl>
+                        </div>
+                        <div class="slds-col slds-size_1-of-3">
+                            <dl class="slds-dl_horizontal">
+                                <dt class="slds-dl_horizontal__label"><b>Completed</b></dt>
+                                <dd class="slds-dl_horizontal__detail">{theCurrentMiles}</dd>
+                            </dl>
+                        </div>
+                        <div class="slds-col slds-size_1-of-3">
+                            <dl class="slds-dl_horizontal">
+                                <dt class="slds-dl_horizontal__label"><b>To Go</b></dt>
+                                <dd class="slds-dl_horizontal__detail">{theMilesToGo}</dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <!-- Days left, New Target, Update Target -->
+
+                    <div class="slds-grid rfl-stats-2">
+                        <div class="slds-col slds-size_1-of-2 slds-box slds-box_x-small rfl-days-left">
+                            <dl class="slds-dl_horizontal">
+                                <dt class="slds-dl_horizontal__label"><b>Days Left</b></dt>
+                                <dd class="slds-dl_horizontal__detail">{theDaysLeft}</dd>
+                            </dl>
+                        </div>
+
+                        <!--                         
+                            <div class="slds-col slds-size_1-of-3 slds-box slds-box_x-small">
+                                <p><b>Fundraising Page:</b></p>
+                                <p>
+                                    <lightning-formatted-url value={theFundraisingPage} tooltip={theFundraisingPage}
+                                        label={theFundraisingPage} target="_blank">
+                                    </lightning-formatted-url>
+                                </p>
+                            </div> 
+                            -->
+                        <template if:false={isFinished}>
+                            <div class="slds-size_1-of-2 rfl-target-miles">
+                                <div style="width: 40%; padding: 2px 2px" class="rfl-target-miles-input">
+                                    <lightning-input type="number" value={newTargetMiles} placeholder="New target"
+                                        onchange={handleChangeMiles}>
+                                    </lightning-input>
+                                </div>
+                                <div class="homepage-button">
+                                    <lightning-button variant="base" label="UPDATE TARGET" title="Update Target"
+                                        onclick={handleSaveMiles}>
+                                    </lightning-button>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+
+            <lightning-tile if:true={gettingReady}>
+                <!-- Getting ready -->
+                <div class="rfl-home-progress">
+                    <p><b>Ready...? Join us at the start line on 23rd May!</b></p>
+                </div>
+            </lightning-tile>
+
+            <lightning-tile if:true={startsToday}>
+                <!-- We're off!!! -->
+                <div class="rfl-home-progress">
+                    <p><b>We're off. Good luck {theRelatedContactFirstname}!</b></p>
+                </div>
+            </lightning-tile>
+
+            <lightning-tile if:true={isFinished}>
+                <!-- All done!!! -->
+                <div class="rfl-home-progress">
+                    <p><b>We're all done. Thank you so much {theRelatedContactFirstname} for participating in our
+                            event!</b></p>
+                </div>
+            </lightning-tile>
+
+            <lightning-tile if:true={hasReachedTarget}>
+                <!-- Celebration!!! -->
+                <div class="rfl-home-celebration">
+                    <p><b>Congratulations!!!</b></p>
+                    <p>You've reached your target</p>
+                </div>
+            </lightning-tile>
+
+            <!-- All the Runs -->
+            <c-hr-all-my-runs homepageid={homepageid} onnewrun={handleNewRunEvent} tooearly={gettingReady}
+                toolate={isFinished} daystostart={theDaysToStart}>
+            </c-hr-all-my-runs>
+
+        </lightning-card>
+
+    </template>
+
+    <template if:true={error}>
+        <c-error-panel errors={error}></c-error-panel>
+    </template>
+
+</template>

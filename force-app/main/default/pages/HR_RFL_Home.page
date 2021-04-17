@@ -555,11 +555,11 @@
             /* Create the top-level RunForLoveHome Lightning Web Component */
 
             $Lightning.use("c:HR_RFL_App", function () {
-                $Lightning.createComponent("c:hrRunForLoveHome",
+                $Lightning.createComponent("c:mpveMyHome",
                     { homePageId: idParam },
                     "rfl-home",
                     function (cmp) {
-                        console.log("hrRunForLoveHome was created");
+                        console.log("mpveMyHome was created");
                         // do some stuff
                     }
                 );

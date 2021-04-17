@@ -59,22 +59,6 @@
                         </div>
                     </div>
                 </lightning-tile>
-
-                <lightning-tile>
-                    <div class="rfl-log-tile">
-                        <div class="rfl-log-header">
-                            <b>Participate As A Team</b>
-                        </div>
-                        <lightning-input type="checkbox" label="Enable Teams - create or become a member of a team."
-                            onchange={handleTeams}>
-                        </lightning-input>
-                        <template if:true={theEnableTeams}>
-                            <div class="slds-grid slds-grid_vertical">
-                                <c-hr-mpve-team-page></c-hr-mpve-team-page>
-                            </div>
-                        </template>
-                    </div>
-                </lightning-tile>
             </template>
         </div>
 
@@ -89,6 +73,8 @@
                             <!-- One completed run -->
                             <lightning-tile>
                                 <div class="rfl-run-tile">
+
+                                    <!-- run header -->
                                     <div class="rfl-run-header">
                                         <div style="display: block; margin-right: auto">
                                             <img src={journey}>
@@ -118,8 +104,5 @@
             </template>
         </div>
     </div>
-    <c-hr-mpve-team-page homepageid={homepageid}></c-hr-mpve-team-page>
-    <template if:true={error}>
-        <c-error-panel errors={error}></c-error-panel>
-    </template>
+
 </template>
