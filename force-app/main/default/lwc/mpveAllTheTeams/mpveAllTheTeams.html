@@ -1,0 +1,80 @@
+<template>
+
+    <div class="slds-grid slds-wrap">
+
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+
+            <!-- Search For Teams -->
+
+            <div class="slds-grid slds-grid_vertical">
+
+                <lightning-tile>
+                    <div class="mvpe-form-tile">
+
+                        <div class="mvpe-form-tile-header">
+                            <b>Browse Teams</b>
+                        </div>
+
+                        <!-- Input box to search for teams -->
+                        <div class="slds-grid slds-grid_vertical">
+                            <div class="slds-col">
+                                <p>Begin typing to browse for a team to join'.</p>
+                            </div>
+
+                            <div class="slds-col">
+                                <lightning-input value={theSearchKey} label="Team Name Or Description" required
+                                    placeholder="e.g., Apollo 11" onchange={handleSearchTeam}>
+                                </lightning-input>
+                            </div>
+
+                        </div>
+                    </div>
+                </lightning-tile>
+
+                <!-- List Of Teams -->
+                <template if:true={theSearchTeams.data}>
+
+                    <div class="mvpe-list-header">Teams</div>
+
+                    <template for:each={theSearchTeams.data} for:item="team">
+                        <div key={team.Id}>
+
+                            <!-- One team -->
+                            <lightning-tile>
+                                <div class="mvpe-item-tile">
+
+                                    <!-- team header -->
+                                    <div class="mvpe-item-header">
+                                        <div style="display: block; margin-right: auto">
+                                            <img src={journey}>
+                                        </div>
+                                        <div>
+                                            <p>{team.Name}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="slds-grid slds-grid_vertical">
+                                        <div class="slds-grid slds-box slds-box_small">
+                                            <div class="slds-col">
+                                                <p>Team Leader: {theProfileScreenName}</p>
+                                            </div>
+                                            <div class="slds-col">
+                                                <p>Number of members: {team.T4R_MPVE_Members__c}</p>
+                                            </div>
+                                        </div>
+                                        <div class="slds-col slds-box slds-box_small">
+                                            <p>Team Description: {team.T4R_MPVE_Team_Description__c}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </lightning-tile>
+                        </div>
+                    </template>
+                </template>
+            </div>
+
+        </div>
+
+    </div>
+
+</template>

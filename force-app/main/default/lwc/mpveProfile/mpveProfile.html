@@ -1,5 +1,61 @@
 <template>
     <lightning-card title="My Profile" icon-name="utility:user_role">
-        My Profile
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1">
+
+                <!-- Create a new profile -->
+                <lightning-tile>
+                    <div class="mvpe-form-tile">
+
+                        <div class="mvpe-form-tile-header">
+                            <b>Create your profile</b>
+                        </div>
+
+                        <div class="slds-grid slds-grid_vertical">
+                            <div class="slds-col">
+                                <p>Enter your profile details in the boxes below, then press 'Save'.</p>
+                            </div>
+
+                            <!-- Input boxes to create a new profile -->
+                            <div class="slds-col">
+                                <lightning-input value={theInputScreenName} label="Screen Name" required
+                                    placeholder="e.g., Jools 1234" onchange={handleChangeScreenName}>
+                                </lightning-input>
+                            </div>
+
+                            <div class="slds-col">
+                                <lightning-input value={theInputProfileDescription} label="About You"
+                                    placeholder="Who you are / what you do" onchange={handleChangeProfileDescription}>
+                                </lightning-input>
+                            </div>
+
+                            <lightning-input type="checkbox"
+                                label="Check this box to allow any participant to view your profile and follow / chat.  Only your team members can see your profile otherwise"
+                                onchange={handleGlobalProfileVisibility}>
+                            </lightning-input>
+
+                            <lightning-input type="checkbox"
+                                label="Check this box to allow any participant to view your contacts.  Only your team members can see your contacts otherwise"
+                                onchange={handleGlobalContactVisibility}>
+                            </lightning-input>
+
+                            <!-- Button to create the profile -->
+                            <div class="mvpe-form-button">
+                                <lightning-button variant="base" label="SAVE" title="Save"
+                                    onclick={handleCreateProfile}>
+                                </lightning-button>
+                            </div>
+                        </div>
+                    </div>
+                </lightning-tile>
+
+            </div>
+
+        </div>
+
+        <template if:true={error}>
+            <c-error-panel errors={error}></c-error-panel>
+        </template>
+
     </lightning-card>
 </template>

@@ -20,17 +20,13 @@ export default class HrAllMyRuns extends LightningElement {
 
     @api homepageid;
 
+    // Reactive variables are prefixed with $.  If a reactive variable changes, the wire service provisions new data
+    // @wire decorates a private property or function that receives the stream of data from the wire service. 
+    // If a property is decorated with @wire, the results are returned to the property’s data property or error property. 
+    // If a function is decorated with @wire, the results are returned in an object with a data property and an error property.
+    // Be careful to either use 'property.data', or to set a property with the value of 'data' to use in the page.
     @wire(GetRunsForLoveForHomePage, { homeId: '$homepageid' })
     therunsforlove;
-
-    //
-    // Log a new run
-    //
-
-    @track theTime;
-    @track theMileage;
-    @track theDate;
-    @track theNotes;
 
     //
     // 40 days not started, or finished
@@ -45,6 +41,15 @@ export default class HrAllMyRuns extends LightningElement {
     //Debug
     @track error;
     errorMessage;
+
+    //
+    // Form to create a new run
+    //
+
+    @track theTime;
+    @track theMileage;
+    @track theDate;
+    @track theNotes;
 
     handleTime(event) {
         // alert('handleTime: theTime = ' + event.target.value);

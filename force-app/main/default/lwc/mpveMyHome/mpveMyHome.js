@@ -9,6 +9,7 @@ import { reduceErrors } from "c/ldsUtils";
 
 // from HR_RFL_AppController
 import GetContactForHomePageId from "@salesforce/apex/HR_RFL_AppController.GetContactForHomePageId";
+import MPVE_ReadProfileForHomePage from "@salesforce/apex/HR_RFL_AppController.MPVE_ReadProfileForHomePage";
 
 export default class MpveMyHome extends LightningElement {
 
@@ -19,14 +20,16 @@ export default class MpveMyHome extends LightningElement {
   @api homePageId;
 
   //Debug
-  error;
-  errorMessage;
   theDateToday;
 
   // --------------------------------------------------------------------------------
-  // initialisation
+  // Lifecycle hooks
   //
+
+  // Called when the element is inserted into a document.
   connectedCallback() {
+
+    //alert('connectedCallback');
 
     // set up debugging
 
@@ -39,6 +42,24 @@ export default class MpveMyHome extends LightningElement {
     this.resetPanes();
     this.getContact();
     this.theEnableActivities = true;
+  }
+
+  // Called after every render of the component.
+  renderedCallback() {
+
+    //alert('renderedCallback');
+
+    this.getProfile();
+  }
+
+  // Creates an error boundary component that captures errors in all the descendent components in its tree.
+  error;
+  errorMessage;
+  stack;
+  errorCallback(error, stack) {
+    this.error = error;
+    this.errorMessage = reduceErrors(error);
+    alert('errorCallback: error = ' + this.errorMessage);
   }
 
   //
@@ -71,7 +92,28 @@ export default class MpveMyHome extends LightningElement {
   //
 
   theEnableProfile = false;
+  theProfile;
 
+  getProfile() {
+
+    MPVE_ReadProfileForHomePage({ homeId: this.homePageId })
+      .then((result) => {
+        if (result != null) {
+          this.theProfile = result;
+          this.errorMessage = 'result OK;'
+        }
+        else {
+          this.theProfile = null;
+          this.errorMessage = 'result was null;'
+        }
+      })
+      .then((result) => {
+        // do something             
+      })
+  }
+
+  // --------------------------------------------------------------------------------
+  // Enable the Profile pane when selected
   handleProfile() {
     this.resetPanes();
     this.theEnableProfile = true;
@@ -84,6 +126,8 @@ export default class MpveMyHome extends LightningElement {
 
   theEnableActivities = false;
 
+  // --------------------------------------------------------------------------------
+  // Enable the Activities pane when selected
   handleActivities() {
     this.resetPanes();
     this.theEnableActivities = true;
@@ -96,6 +140,8 @@ export default class MpveMyHome extends LightningElement {
 
   theEnableTeams = false;
 
+  // --------------------------------------------------------------------------------
+  // Enable the Teams pane when selected
   handleTeams() {
     this.resetPanes();
     this.theEnableTeams = true;
@@ -108,6 +154,8 @@ export default class MpveMyHome extends LightningElement {
 
   theEnableFollow = false;
 
+  // --------------------------------------------------------------------------------
+  // Enable the Follow pane when selected
   handleFollow() {
     this.resetPanes();
     this.theEnableFollow = true;
@@ -120,6 +168,8 @@ export default class MpveMyHome extends LightningElement {
 
   theEnableChat = false;
 
+  // --------------------------------------------------------------------------------
+  // Enable the Chat pane when selected
   handleChat() {
     this.resetPanes();
     this.theEnableChat = true;

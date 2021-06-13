@@ -1,9 +1,8 @@
-//
-// Log
-//
-// 18/1/2021 changed to without sharing 
-// 18/1/2021 in GetHomePageForId set cacheable=true
-// 21/1/2021 added T4R_Run_For_Love_Scoreboard__c to GetHomePageForId
+// -----------------------------------------------------------------------
+// <copyright file="HR_RFL_AppController.cls">
+// Copyright (c) Choose Love and Tony King. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
 
 public without sharing class HR_RFL_AppController 
 {
@@ -207,11 +206,11 @@ public without sharing class HR_RFL_AppController
     // Scoreboard
     //
 
-        // --------------------------------------------------------------------------------
-        @AuraEnabled(cacheable=true)
-        public static T4R_Run_For_Love_Scoreboard__c GetScoreboardForId(string scoreboardId) 
-        {
-        system.debug('getScoreboardForId: scoreboardId = ' + scoreboardId);
+     // --------------------------------------------------------------------------------
+    @AuraEnabled(cacheable=true)
+    public static T4R_Run_For_Love_Scoreboard__c GetScoreboardForId(string scoreboardId) 
+    {
+        //system.debug('getScoreboardForId: scoreboardId = ' + scoreboardId);
     
         T4R_Run_For_Love_Scoreboard__c scoreboard = [
                 SELECT Id, Name, T4R_Total_miles_pledged__c, T4R_Total_miles_completed__c, 
@@ -225,10 +224,10 @@ public without sharing class HR_RFL_AppController
                 LIMIT 1
             ];
 
-            system.debug('getScoreboardForId: T4R_Campaign_start_date__c = ' + scoreboard.T4R_Campaign_start_date__c);
+        //system.debug('getScoreboardForId: T4R_Campaign_start_date__c = ' + scoreboard.T4R_Campaign_start_date__c);
             
-            return scoreboard;
-        } 
+        return scoreboard;
+    } 
 
     // --------------------------------------------------------------------------------
     @AuraEnabled(cacheable=true)
@@ -281,7 +280,45 @@ public without sharing class HR_RFL_AppController
             //WITH SECURITY_ENFORCED
             LIMIT 1
         ];
-    }   
+    }  
+    
+    // --------------------------------------------------------------------------------
+    @AuraEnabled(cacheable=false)
+    public static List<T4R_Run_For_Love_Home__c> GetTeamHomePagesForHome(string homeId) 
+    {
+        //system.debug('GetTeamHomePagesForHome: homeId = ' + homeId);
+       
+        // get the Affiliations for the original Home Page
+        List<T4R_MPVE_Team_Affiliation__c> affs = MPVE_ReadTeamAffiliationsForHomePage(homeId);
+
+        // get the Home Page for each Affiliation
+        List<T4R_Run_For_Love_Home__c> homePages = new List<T4R_Run_For_Love_Home__c>();
+        for (T4R_MPVE_Team_Affiliation__c aff : affs) {
+            T4R_Run_For_Love_Home__c home =  GetHomePageForId(aff.T4R_MPVE_Home__c);
+            homePages.add(home);
+        }
+
+        return homePages;
+    } 
+
+        // --------------------------------------------------------------------------------
+        @AuraEnabled(cacheable=false)
+        public static List<T4R_Run_For_Love_Home__c> MPVE_GetTeamHomePagesForTeam(string teamId) 
+        {
+            //system.debug('MPVE_GetTeamHomePagesForTeam: teamId = ' + teamId);
+           
+            // get all the Affiliations for the Team
+            List<T4R_MPVE_Team_Affiliation__c> affs = MPVE_ReadTeamAffiliationsForTeam(teamId);
+    
+            // get the Home Page for each Affiliation
+            List<T4R_Run_For_Love_Home__c> homePages = new List<T4R_Run_For_Love_Home__c>();
+            for (T4R_MPVE_Team_Affiliation__c aff : affs) {
+                T4R_Run_For_Love_Home__c home =  GetHomePageForId(aff.T4R_MPVE_Home__c);
+                homePages.add(home);
+            }
+    
+            return homePages;
+        } 
 
     // --------------------------------------------------------------------------------
     @AuraEnabled(cacheable=false)
@@ -453,6 +490,19 @@ public without sharing class HR_RFL_AppController
     // Team Affiliations
     //
 
+        // --------------------------------------------------------------------------------
+        @AuraEnabled(cacheable=true)
+        public static List<T4R_MPVE_Team_Affiliation__c> MPVE_ReadTeamAffiliationsForTeam(String teamId) 
+        {
+            //system.debug('MPVE_ReadTeamAffiliationsForTeam: teamId = ' + teamId);
+        
+            return [
+                SELECT Id, Name, T4R_MPVE_Home__c, T4R_MPVE_Team__c
+                FROM T4R_MPVE_Team_Affiliation__c
+                WHERE T4R_MPVE_Team__c =: teamId
+            ];
+        } 
+
     // --------------------------------------------------------------------------------
     @AuraEnabled(cacheable=true)
     public static List<T4R_MPVE_Team_Affiliation__c> MPVE_ReadTeamAffiliationsForHomePage(String homeId) 
@@ -470,7 +520,7 @@ public without sharing class HR_RFL_AppController
     @AuraEnabled(cacheable=false)
     public static T4R_MPVE_Team_Affiliation__c MPVE_CreateTeamAffiliation(string homePageId, string teamId) 
     {  
-        system.debug('MPVE_CreateTeamAffiliation: homePageId = ' + homePageId + '; teamId = ' + teamId);
+        //system.debug('MPVE_CreateTeamAffiliation: homePageId = ' + homePageId + '; teamId = ' + teamId);
   
         T4R_MPVE_Team_Affiliation__c newAffiliation = new T4R_MPVE_Team_Affiliation__c();
         newAffiliation.T4R_MPVE_Home__c = homePageId;
@@ -492,28 +542,30 @@ public without sharing class HR_RFL_AppController
     // Teams
     //
 
-        // --------------------------------------------------------------------------------
-        @AuraEnabled(cacheable=true)
-        public static T4R_MPVE_Team__c MPVE_ReadTeam(String teamId) 
-        {
-            //system.debug('MPVE_ReadTeam: teamId = ' + teamId);
+    // --------------------------------------------------------------------------------
+    @AuraEnabled(cacheable=true)
+    public static T4R_MPVE_Team__c MPVE_ReadTeam(String teamId) 
+    {
+        //system.debug('MPVE_ReadTeam: teamId = ' + teamId);
             
-            return [
-                SELECT Id, Name, T4R_MPVE_Team_Organiser__c
-                FROM T4R_MPVE_Team__c
-                WHERE Id =: teamId
-                LIMIT 1
-               ];
-         } 
+        return [
+            SELECT Id, Name, T4R_MPVE_Team_Organiser__c, T4R_MPVE_Team_Motto__c, 
+            T4R_MPVE_Team_Motivation__c, T4R_MPVE_Team_Description__c, T4R_MPVE_Members__c
+            FROM T4R_MPVE_Team__c
+            WHERE Id =: teamId
+            LIMIT 1
+            ];
+        } 
 
     // --------------------------------------------------------------------------------
     @AuraEnabled(cacheable=true)
     public static T4R_MPVE_Team__c MPVE_ReadTeamForName(String teamName) 
     {
-        //system.debug('MPVE_ReadTeamForId: teamId = ' + teamId);
+        //system.debug('MPVE_ReadTeamForId: teamId = ' + teamName);
         
         return [
-            SELECT Id, Name, T4R_MPVE_Team_Organiser__c
+            SELECT Id, Name, T4R_MPVE_Team_Organiser__c, T4R_MPVE_Team_Motto__c, 
+            T4R_MPVE_Team_Motivation__c, T4R_MPVE_Team_Description__c, T4R_MPVE_Members__c
             FROM T4R_MPVE_Team__c
             WHERE Name =: teamName
             LIMIT 1
@@ -524,8 +576,9 @@ public without sharing class HR_RFL_AppController
     @AuraEnabled(cacheable=true)
     public static List<T4R_MPVE_Team__c> MPVE_ReadTeamsForHomePage(String homeId) 
     {
-        system.debug('MPVE_ReadTeamsForHomePage: homeId = ' + homeId);
+        //system.debug('MPVE_ReadTeamsForHomePage: homeId = ' + homeId);
     
+        // get all the affiliations for this Home Page
         List<T4R_MPVE_Team_Affiliation__c> affiliations = MPVE_ReadTeamAffiliationsForHomePage(homeId);
 
         // read all the teams from the affiliations
@@ -538,31 +591,37 @@ public without sharing class HR_RFL_AppController
         return teams;
     }
 
-        // --------------------------------------------------------------------------------
-        @AuraEnabled(cacheable=true)
-        public static List<T4R_MPVE_Team__c> MPVE_ReadTeamsForHomePageNullResult(String homeId) 
-        {
-            system.debug('MPVE_ReadTeamsForHomePageNullResult: homeId = ' + homeId);
+    // --------------------------------------------------------------------------------
+    @AuraEnabled(cacheable=true)
+    public static T4R_MPVE_Team__c MPVE_ReadTeamForHomePage(String homeId) 
+    {
+        //system.debug('MPVE_ReadTeamForHomePage: homeId = ' + homeId);
         
-            List<T4R_MPVE_Team__c> teams = MPVE_ReadTeamsForHomePage(homeId);
-    
-            if (teams.isEmpty())
-            {
-                return null;
-            }
+        List<T4R_MPVE_Team__c> teams = MPVE_ReadTeamsForHomePage(homeId);
 
-            return teams;
+        if(teams.isEmpty())
+        {
+            return null;
         }
+
+        T4R_MPVE_Team__c team = teams.get(0);
+    
+        return team;
+    }
     
     // --------------------------------------------------------------------------------
     @AuraEnabled(cacheable=false)
-    public static T4R_MPVE_Team__c MPVE_CreateTeam(string teamName, string relatedParticipant) 
+    public static T4R_MPVE_Team__c MPVE_CreateTeam(string teamName, string teamDescription, 
+    string teamMotivation, string teamMotto, string teamOrganiser) 
     {  
-        system.debug('MPVE_CreateTeam: teamName = ' + teamName + 'relatedParticipant = ' + relatedParticipant);
+        //system.debug('MPVE_CreateTeam: teamName = ' + teamName + 'teamOrganiser = ' + teamOrganiser);
 
         T4R_MPVE_Team__c newTeam = new T4R_MPVE_Team__c();
         newTeam.Name = teamName;
-        newTeam.T4R_MPVE_Team_Organiser__c = relatedParticipant;
+        newTeam.T4R_MPVE_Team_Description__c = teamDescription;
+        newTeam.T4R_MPVE_Team_Motivation__c = teamMotivation;
+        newTeam.T4R_MPVE_Team_Motto__c = teamMotto;
+        newTeam.T4R_MPVE_Team_Organiser__c = teamOrganiser;
     
         try 
         {
@@ -578,16 +637,17 @@ public without sharing class HR_RFL_AppController
 
     // --------------------------------------------------------------------------------
     @AuraEnabled(cacheable=false)
-    public static T4R_MPVE_Team__c MPVE_CreateTeamForHomePage(string homePageId, String teamName) 
+    public static T4R_MPVE_Team__c MPVE_CreateTeamForHomePage(string homePageId, String teamName, string teamDescription, 
+    string teamMotivation, string teamMotto) 
     {  
-        system.debug('MPVE_CreateTeamForHomePage: homePageId = ' + homePageId + '; teamName = ' + teamName);
+        //system.debug('MPVE_CreateTeamForHomePage: homePageId = ' + homePageId + '; teamName = ' + teamName);
 
-        // read the home page to get the relatedParticipant
+        // read the home page to get the teamOrganiser
         T4R_Run_For_Love_Home__c homePage = GetHomePageForId(homePageId);
-        String relatedParticipant = homePage.T4R_Related_Runner__c;
+        String teamOrganiser = homePage.T4R_Related_Runner__c;
 
         // create the team
-        MPVE_CreateTeam(teamName, relatedParticipant);
+        MPVE_CreateTeam(teamName, teamDescription, teamMotivation, teamMotto, teamOrganiser);
     
         // read the team back to get the id
         T4R_MPVE_Team__c team = MPVE_ReadTeamForName(teamName);
@@ -600,6 +660,67 @@ public without sharing class HR_RFL_AppController
 
         return team;
     }  
+
+    // --------------------------------------------------------------------------------
+    @AuraEnabled(cacheable=true)
+    public static List<T4R_MPVE_Team__c> MPVE_SearchTeams(String searchKey) {
+
+        if(String.isBlank(searchKey))
+        {
+            return null;
+        }
+
+        String key = '%' + searchKey + '%';
+        return [
+            SELECT Id, Name, T4R_MPVE_Team_Organiser__c, T4R_MPVE_Team_Motto__c, 
+            T4R_MPVE_Team_Motivation__c, T4R_MPVE_Team_Description__c, T4R_MPVE_Members__c
+            FROM T4R_MPVE_Team__c
+            WHERE Name LIKE :key
+            //WITH SECURITY_ENFORCED
+            //LIMIT 10
+        ];
+    }
+
+    //
+    // Participant Profile
+    //
+
+    // --------------------------------------------------------------------------------
+     @AuraEnabled(cacheable=true)
+    public static T4R_MPVE_Participant_Profile__c MPVE_ReadProfileForHomePage(String homeId) 
+    {
+        system.debug('MPVE_ReadProfileForHomePage: homeId = ' + homeId);
+        
+        return [
+            SELECT Id, Name, T4R_MPVE_Screen_name__c, T4R_MPVE_About_me__c
+            FROM T4R_MPVE_Participant_Profile__c
+            WHERE T4R_MPVE_Home_page__c =: homeId
+            LIMIT 1
+           ];
+    }
+
+        // --------------------------------------------------------------------------------
+        @AuraEnabled(cacheable=false)
+        public static T4R_MPVE_Participant_Profile__c MPVE_CreateProfileForHomePage(String homeId, String screenName, String aboutMe) 
+        {  
+            system.debug('MPVE_CreateProfileForHomePage: homeId = ' + homeId + ' screenName = ' + screenName );
+    
+            T4R_MPVE_Participant_Profile__c newProfile = new T4R_MPVE_Participant_Profile__c();
+            newProfile.T4R_MPVE_Home_page__c = homeId;
+            newProfile.T4R_MPVE_Screen_name__c = screenName;
+            newProfile.T4R_MPVE_About_me__c = aboutMe;
+        
+            try 
+            {
+                insert newProfile;
+            } 
+            catch(DmlException e) 
+            {
+                System.debug('An unexpected error has occurred: ' + e.getMessage());
+            } 
+             
+            return newProfile;
+        } 
 
     //
     // Debugging

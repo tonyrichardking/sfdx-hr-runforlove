@@ -1,63 +1,120 @@
+<!-------------------------------------------------------------------------
+<copyright file="mpveTeamDashboard.html">
+Copyright (c) Choose Love and Tony King. All rights reserved.</copyright>
+-------------------------------------------------------------------------->
 <template>
-    <p>Welcome 'To The Moon' Team!</p>
+    <lightning-card title="Teams" icon-name="utility:groups">
+        <div class="slds-grid slds-wrap">
 
-    <lightning-card title="My Teams" icon-name="utility:groups">
-        <template if:true={theTeams}>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
 
-            <!-- List of teams -->
-            <div class="slds-grid slds-grid_vertical">
-                <template for:each={theTeams} for:item="team">
-                    <div key={team.Id}>
+                <!-- <div>hasTeam = {hasTeam} </div> -->
+
+                <template if:false={hasTeam}>
+
+                    <!-- Create Your Team -->
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+
+                        <lightning-tile>
+                            <div class="mvpe-form-tile">
+
+                                <div class="mvpe-form-tile-header">
+                                    <b>Create your team</b>
+                                </div>
+
+                                <div class="slds-grid slds-grid_vertical">
+                                    <div class="slds-col">
+                                        <p>Enter your team details in the boxes below, then press 'Save'.</p>
+                                    </div>
+
+                                    <!-- Input boxes to create a new team -->
+                                    <div class="slds-col">
+                                        <lightning-input value={theInputTeamName} label="Team Name" required
+                                            placeholder="e.g., Apollo 11" onchange={handleSetTeamName}>
+                                        </lightning-input>
+                                    </div>
+
+                                    <div class="slds-col">
+                                        <lightning-input value={theInputTeamDescription} label="Description"
+                                            placeholder="Who you are / what you do" onchange={handleSetTeamDescription}>
+                                        </lightning-input>
+                                    </div>
+
+                                    <div class="slds-col">
+                                        <lightning-input value={theInputTeamMotivation} label="Motivation"
+                                            placeholder="Why you're doing this" onchange={handleSetTeamMotivation}>
+                                        </lightning-input>
+                                    </div>
+
+                                    <div class="slds-col">
+                                        <lightning-input value={theInputTeamMotto} label="Motto"
+                                            placeholder="e.g., 'The moon or bust!'" onchange={handleSetTeamMotto}>
+                                        </lightning-input>
+                                    </div>
+
+                                    <!-- Button to create the team -->
+                                    <div class="mvpe-form-button">
+                                        <lightning-button variant="base" label="SAVE" title="Save"
+                                            onclick={handleCreateTeam}>
+                                        </lightning-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </lightning-tile>
+
+                    </div>
+
+                </template>
+
+                <!-- My Team -->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+                    <template if:true={myTeam.data}>
+
+                        <div class="mvpe-list-header">My Team</div>
 
                         <!-- One team -->
                         <lightning-tile>
-                            <div class="rfl-run-tile">
+                            <div class="mvpe-item-tile">
 
                                 <!-- team header -->
-                                <div class="rfl-run-header">
+                                <div class="mvpe-item-header">
                                     <div style="display: block; margin-right: auto">
                                         <img src={journey}>
-                                    </div> 
+                                    </div>
                                     <div>
-                                        <p>Team Motto</p>
-                                    </div>                                                                      
+                                        <p>{myTeam.data.Name}</p>
+                                    </div>
                                 </div>
 
-                                    <div class="slds-grid slds-grid_vertical">
-                                        <div class="slds-grid slds-box slds-box_small">
-                                            <div class="slds-col">
-                                                <p>Name Of Team = {team.Name}</p>
-                                            </div>
-                                            <div class="slds-col">
-                                                <p>Team Captain</p>
-                                            </div>
+                                <div class="slds-grid slds-grid_vertical">
+                                    <div class="slds-grid slds-box slds-box_small">
+                                        <div class="slds-col">
+                                            <p>Team Leader: {theProfileScreenName}</p>
                                         </div>
-                                        <div class="slds-col slds-box slds-box_small">
-                                            <p>Team Description</p>
+                                        <div class="slds-col">
+                                            <p>Number of members: {myTeam.data.T4R_MPVE_Members__c}</p>
                                         </div>
                                     </div>
+                                    <div class="slds-col slds-box slds-box_small">
+                                        <p>Team Description: {myTeam.data.T4R_MPVE_Team_Description__c}</p>
+                                    </div>
+                                </div>
                             </div>
                         </lightning-tile>
-                    </div>
-                </template>
+
+                    </template>
+                </div>
+
             </div>
-        </template>
-        <template if:false={theTeams}>
-            <p>You don't have any teams yet. Your team page = {teamPageId}</p>
-        </template>
-        <div class="slds-size_1-of-2">
-            <p>theNewTeamName = {theNewTeamName}.</p>
-            <div style="width: 40%; padding: 2px 2px">
-                <lightning-input value={theInputTeamName} placeholder="New Team Name" onchange={handleChangeTeamName}>
-                </lightning-input>
+
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+
+                <!-- Find A Team To Join -->
+                <c-mpve-all-the-teams homepageid={homepageid}></c-mpve-all-the-teams>
+
             </div>
-            <div class="homepage-button">
-                <lightning-button variant="base" label="CREATE A TEAM" title="Create a Team" onclick={handleCreateTeam}>
-                </lightning-button>
-            </div>
+
         </div>
-        <template if:true={error}>
-            <c-error-panel errors={error}></c-error-panel>
-        </template>
+
     </lightning-card>
 </template>
